@@ -1,24 +1,11 @@
 <?php
 
-	function get_broker()
-	{
-			$str='';
-			$str=$_POST['std'];
-			$names = get_data($std);
-
-			foreach ($names as $name)
-			{
-					$str.='<option value="'.$name.'">'.$name.'</option>';
-			}
-
-			return $str;
-	}
-
-	function get_data ($std)
+	
+	function get_data_2 ()
 	{
 			 
 			 //Create a Broker Array
-			 $Brokers=array();
+			 $Haulers=array();
 
 			 $servername = "luis.cylcbbatmizc.us-west-2.rds.amazonaws.com";
 			 $username = "Luis";
@@ -26,18 +13,16 @@
 			 $dbname = "LuisTrucking";
 			
 			 $conn = new mysqli($servername, $username, $password, $dbname);
-			 $sql = "SELECT TruckID FROM Truck";
+			 $sql = "SELECT BrokerName FROM Broker";
 			 $result = $conn->query($sql);
 
 			 while($row = $result->fetch_assoc())
 			 {
 					 //Load an Array wih the brokers
-					 $Brokers[] = $row[TruckID];
+					 $Haulers[] = $row[BrokerName];
 			 }
 
-			 return $Brokers;
+			 echo json_encode($Haulers);
 	}
-
-	  echo get_broker(); 
+	get_data_2();
 ?>
-

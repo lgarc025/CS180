@@ -1,10 +1,10 @@
 <?php
 
-	function get_broker()
+	function get_driver()
 	{
 			$str='';
 			$str=$_POST['std'];
-			$names = get_data($std);
+			$names = get_data_driver($std);
 
 			foreach ($names as $name)
 			{
@@ -14,7 +14,7 @@
 			return $str;
 	}
 
-	function get_data ($std)
+	function get_data_driver ($std)
 	{
 			 
 			 //Create a Broker Array
@@ -26,18 +26,18 @@
 			 $dbname = "LuisTrucking";
 			
 			 $conn = new mysqli($servername, $username, $password, $dbname);
-			 $sql = "SELECT TruckID FROM Truck";
+			 $sql = "SELECT DriverName FROM Driver";
 			 $result = $conn->query($sql);
 
 			 while($row = $result->fetch_assoc())
 			 {
 					 //Load an Array wih the brokers
-					 $Brokers[] = $row[TruckID];
+					 $Brokers[] = $row[DriverName];
 			 }
 
 			 return $Brokers;
 	}
 
-	  echo get_broker(); 
-?>
+	echo get_driver();
 
+?>

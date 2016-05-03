@@ -1,10 +1,10 @@
 <?php
 
-	function get_broker()
+	function get_broker_2()
 	{
 			$str='';
 			$str=$_POST['std'];
-			$names = get_data($std);
+			$names = get_data_2($std);
 
 			foreach ($names as $name)
 			{
@@ -14,7 +14,7 @@
 			return $str;
 	}
 
-	function get_data ($std)
+	function get_data_2 ($std)
 	{
 			 
 			 //Create a Broker Array
@@ -38,17 +38,6 @@
 			 return $Brokers;
 	}
 
-?>
+	echo get_broker_2();
 
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-<select name="Brokers">
-<?php echo get_broker(); 
 ?>
-</select>
-</body>
-</html>
-

@@ -49,7 +49,7 @@ if ($result->num_rows > 0)
 								     echo "Value is: " . $_COOKIE[$cookie_name];
 					 }
 
-            // header('Location: http://www.luistrucking.com/test.html');
+            header('Location: http://www.luistrucking.com/home.php');
 
 			 }
 			 else 
