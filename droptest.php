@@ -135,7 +135,7 @@ li a:hover:not(.active) {
 			<a href="#ex">Third Expense</a>
 		</div>
 	</li>
-	<li><a href="luistrucking.html">Logout</a></li>
+	<li style = "float:right"><a href="luistrucking.html">Logout</a></li>
 </ul>
 
 
