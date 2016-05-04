@@ -15,7 +15,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <style>
-
 .dropbtn {
 		background-color:#333;
 		color: white;
@@ -35,7 +34,7 @@
 		position:relative;
 		background-color: #888;
 		min-width: 160px;
-<!--		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);-->
+	<!--	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);-->
 }
 
 .dropdown-content a{
@@ -56,7 +55,6 @@
 .dropdown:hover .dropbtn{
 		background-color:#888;
 }
-
 body {margin:0;}
 
 ul {
@@ -90,54 +88,65 @@ li a:hover:not(.active) {
 		background-color: #333;
 }
 
+
+
+
 </style>
 </head>
 <body>
 <ul>
-    <li><a href="#home">Home</a></li>
-    <li class="dropdown">
+    <li><a href="home.php">Home</a></li>
+
+
+<li class="dropdown">
+
+
+
+
+
+
 		<button class="dropbtn" href="#hlr">Haulers</a>
 		<div class="dropdown-content">
-			<a href="#hlr">First Hauler</a>
-			<a href="#hlr">Second Hauler</a>
-			<a href="#hlr">Third Driver</a>
+			<a href="AddHauler.php">Add Hauler</a>
+			<a href="RemoveHauler.php">Remove Hauler</a>
 		</div>
 	</li>
     <li class="dropdown">
 		<button class="dropbtn" href="#drvr">Brokers</a>
 		<div class="dropdown-content">
-			<a href="#drvr">First Driver</a>
-			<a href="#drvr">Second Driver</a>
-			<a href="#drvr">Third Driver</a>
+			<a href="AddBroker.php">Add Broker</a>
+			<a href="RemoveBroker.php">Remove Broker</a>
 		</div>
 	</li>
     <li class="dropdown">
 		<button class="dropbtn" href="#drvr">Driver</a>
 		<div class="dropdown-content">
-			<a href="#drvr">First Driver</a>
-			<a href="#drvr">Second Driver</a>
-			<a href="#drvr">Third Driver</a>
+			<a href="AddDriver.php">Add Driver</a>
+			<a href="RemoveDriver.php">Remove Driver</a>
+
+			<a href="ChangeDriverPassword.php">Change Password</a>
 		</div>
 	</li>
     <li class="dropdown">
 		<button class="dropbtn" href="#trk">Trucks</a>
 		<div class="dropdown-content">
-			<a href="#trk">First Truck</a>
-			<a href="#trk">Second Truck</a>
-			<a href="#trk">Third Truck</a>
+			<a href="AddTruck.php">Add Truck</a>
+			<a href="RemoveTruck.php">Remove Truck</a>
 		</div>
 	</li>
     <li class="dropdown">
 		<button class="dropbtn" href="#ex">Expenses</a>
 		<div class="dropdown-content">
-			<a href="#ex">First Expense</a>
-			<a href="#ex">Second Expense</a>
-			<a href="#ex">Third Expense</a>
+			<a href="AddVendor.php">Add Vendor</a>
+			<a href="RemoveVendor.php">Remove Vendor</a>
+
+			<a href="expense.php">Add Expense Type</a>
+
 		</div>
 	</li>
-	<li style = "float:right"><a href="luistrucking.html">Logout</a></li>
+	<li style = "float:right"><a href="logout.php">Logout</a></li>
+	<li style = "float:right; color:#fff; background-color:#333; padding: 14px 16px;" >Hi (user)!</li>
 </ul>
-
 
      <div class="container">
 		<div class="top">
