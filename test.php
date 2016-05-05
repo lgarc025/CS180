@@ -10,201 +10,112 @@
 
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Custom Stylesheet -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/dropStyle.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <style>
-body {margin:0; z-index: -1;}
-
-
-
+body {margin:0;}
 
 .header{
-
-			background-color:#333;
-
-				overflow-y:hidden;
-
-					font-family:'Roboto Slab', serif;
-
-						font-size:16px;
-						z-index: 1000;
-						position: relative;
+	background-color:#333;
+	overflow-y:hidden;
+	font-family:'Roboto Slab', serif;
+	font-size:16px;
+	position: relative;
 }
-
-
 
 .header-wrapper{
-
-			width:100%;
-
-				margin: 0 auto;
-
-					text-align: left;
-
-						position: fixed;
-
+	width:100%;
+	margin: 0 auto;
+	text-align: left;
+	position: fixed;
+	z-index: 99;
 }
-
-
 
 .header ul{
-
-			background-color:#333;
-
-				list-style-type:none;
-
-					padding: 0;
-
-						margin: 0;
-
-							top: 0;
-
-								position: relative;
-
+	background-color:#333;
+	list-style-type:none;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	position: relative;
+	z-index: 101;
 }
-
-
 
 .header ul li{
-
-			display:inline-block;
-
-			;	color: white;
-
+	display:inline-block;
+	color: white;
 }
-
-
 
 .header ul li:hover{
-
-			background-color: #888;
-
+	background-color: #888;
 }
-
-
 
 .header ul li a,visited{
-
-			color: white;
-
-				display:block;
-
-					padding: 16px;
-
-						text-decoration: none;
-
+	color: white;
+	display:block;
+	padding: 16px;
+	text-decoration: none;
 }
-
-
 
 .header ul li a:hover{
-
-			color: white;
-
-				text-decoration: none;
-
+	color: white;
+	text-decoration: none;
 }
-
-
 
 .header ul li:hover ul{
-
-			display: block;
-
+	display: block;
 }
-
-
 
 .header ul ul{
-
-			display: none;
-
-				position: absolute;
-
-					top: 35px;
-
+	display: none;
+	position: absolute;
+	top: 53px;
+	z-index:1000;
 }
-
-
 
 .header ul ul li{
-
-			display: block;
-
+	display: block;
 }
 
+.active {
+	background-color:#999;
+}
 
 </style>
 </head>
 <body>
 <div class="header">
-
 	<div class="header-wrapper">
-<ul>
-    <li><a href="home.php">Home</a></li>
-
-
-
-	<li><a href="#brk">Brokers</a>
-
 	<ul>
-
-	<li><a href="#brk">Add Broker</a></li>
-
-	<li><a href="#brk">Remove Broker</a></li>
-
-
-   	</ul></li><li>
-
-    <a href="#drvr">Driver</a>
-
-	<ul>
-
-	<li><a href="#dr1">Add Driver</a></li>
-
-	<li><a href="#dr2">Remove Driver</a></li>
-
-
-  	</ul></li><li>
-
-   <a href="#trk">Trucks</a></li><li>
-
-	<ul>
-
-	<li><a href="#dr1">Add Truck</a></li>
-
-	<li><a href="#dr2">Remove Truck</a></li>
-
-
-  	</ul></li><li>
-
-
-
- <a href="#ex">Expenses</a></li>
-
-	<ul>
-
-	<li><a href="#dr1">Add Vendor</a></li>
-
-	<li><a href="#dr1">Remove Vendor</a></li>
-
-	<li><a href="#dr2">Add Expense Type</a></li>
-
-	<li><a href="#dr2">Remove Expense Type</a></li>
-
-
-  	</ul></li><li>
-
- <li style = "float:right"><a href="luistrucking.html">Logout</a></li>
-
- <li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;">(user) Hi!</li>
-
- </ul>
-
- </div>
-
+    	<li><a href="home.php">Home</a></li>
+		<li><a href="#brk">Brokers</a>
+			<ul>
+				<li><a href="#brk">Add Broker</a></li>
+				<li><a href="#brk">Remove Broker</a></li>
+   			</ul></li><li>
+    		<a href="#drvr">Driver</a>
+			<ul>
+				<li><a href="#dr1">Add Driver</a></li>
+				<li><a href="#dr2">Remove Driver</a></li>
+  			</ul></li><li>
+   			<a href="#trk">Trucks</a>
+			<ul>
+				<li><a href="#trk1">Add Truck</a></li>
+				<li><a href="#trk2">Remove Truck</a></li>
+  			</ul></li><li>
+			<a class="active" href="#ex">Expenses</a>
+			<ul>
+				<li><a href="#ex1">Add Vendor</a></li>
+				<li><a href="#ex2">Remove Vendor</a></li>
+				<li><a href="#ex3">Add Expense Type</a></li>
+				<li><a href="#ex4">Remove Expense Type</a></li>
+  			</ul></li>
+		<li style = "float:right"><a href="luistrucking.html">Logout</a></li>
+ 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;">(user) Hi!</li>
+ 	</ul>
+ 	</div>
  </div>
 
 
