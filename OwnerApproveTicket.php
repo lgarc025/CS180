@@ -83,10 +83,13 @@ li a:hover:not(.active) {
 			<br/>
 			<br/>
 			<button type="submit">Generate Report</button>
+			</form>
 			<br/>
 			<br/>
+			<form action="OwnerApproveSubmit.php" method="post">
 			<?php include('OwnerApproveTicketInfo.php'); ?>
 			<br/>
+			<button type="submit">Submit Approve List</button>
 			</form>
 		</div>
 	</div>

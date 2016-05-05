@@ -26,7 +26,6 @@ else
 
 $result = $conn->query($sql);
 
-
 echo "<table id='t01' class='center'>"; // start a table tag in the HTML
 echo "<tr> <th>Approve</th><th>TicketID</th> <th>Date</th> <th>TruckID</th> <th>Driver</th> <th>Hauler</th> <th>Broker</th> <th>Rate</th> <th>Tons/Hours</th> <th>Total</th>   </tr> ";
 
@@ -38,7 +37,7 @@ while($row = $result->fetch_assoc())
 				$Approval="Not Approved";
 
 		}
-		echo "<tr><td>" ." <input type='checkbox' id='".$row['TicketID']."'</td><td>"  . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>". $row['DriverName']. "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['BrokerName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . $row['Amount'] . "</td><td>" ." $". $row['Total']  ."</tr></td>";
+		echo "<tr><td>" ." <input type='checkbox' name='check_list[]' value='".$row['TicketID']."'</td><td>"  . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>". $row['DriverName']. "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['BrokerName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . $row['Amount'] . "</td><td>" ." $". $row['Total']  ."</tr></td>";
 		
 
 }
