@@ -4,7 +4,7 @@ $username = "Luis";
 $password = "Luis1234";
 $dbname = "LuisTrucking";
 
-$user =$_POST["driver"];
+$user =$_POST["broker"];
 
 if($user == "")
 {
@@ -21,17 +21,17 @@ if ($conn->connect_error) {
 //Run Query to authenticate User
 if($user == '*')
 {
-	 $sql = "SELECT * FROM Ticket Where Approval='0' ORDER BY TicketDate DESC";
+	 $sql = "SELECT * FROM Ticket Where Paid='0' ORDER BY TicketDate DESC";
 }
 else
 {
-	 $sql = "SELECT * FROM Ticket Where DriverName ='$user' and Approval='0' ORDER BY TicketDate DESC";
+	 $sql = "SELECT * FROM Ticket Where BrokerName ='$user' and Paid='0' ORDER BY TicketDate DESC";
 }
 
 $result = $conn->query($sql);
 
 echo "<table id='t01' class='center'>"; // start a table tag in the HTML
-echo "<tr> <th>Approve</th><th>TicketID</th> <th>Date</th> <th>TruckID</th> <th>Driver</th> <th>Hauler</th> <th>Broker</th> <th>Rate</th> <th>Tons/Hours</th> <th>Total</th>   </tr> ";
+echo "<tr> <th>Paid</th><th>TicketID</th> <th>Date</th> <th>TruckID</th> <th>Driver</th> <th>Hauler</th> <th>Broker</th> <th>Rate</th> <th>Tons/Hours</th> <th>Total</th>   </tr> ";
 
 while($row = $result->fetch_assoc())
 {
