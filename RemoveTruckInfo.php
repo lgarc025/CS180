@@ -26,12 +26,11 @@ $sql = "DELETE FROM Truck Where TruckID='$TruckID'";
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+          header('Location: http://www.luistrucking.com/RemoveTruckError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good Removing TruckID";
+          header('Location: http://www.luistrucking.com/RemoveTruckOkay.php');
 }
 
 

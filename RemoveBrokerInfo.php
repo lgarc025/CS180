@@ -26,12 +26,12 @@ $sql = "DELETE FROM Broker Where BrokerName='$Broker'";
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+		header('Location: http://www.luistrucking.com/RemoveBrokerError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good Removing Broker!";
+
+		header('Location: http://www.luistrucking.com/RemoveBrokerOkay.php');
 }
 
 

@@ -28,12 +28,12 @@ $sql = "DELETE FROM Vendor Where VendorName='$Vendor'";
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+
+          header('Location: http://www.luistrucking.com/RemoveVendorError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good adding Vendor";
+          header('Location: http://www.luistrucking.com/RemoveVendorOkay.php');
 }
 
 

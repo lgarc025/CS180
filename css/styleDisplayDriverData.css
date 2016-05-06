@@ -141,37 +141,77 @@ p.small {
 }
 body {margin:0;}
 
-ul {
-		 list-style-type: none;
-	     margin: 0;	
-		 padding: 0;
-		 overflow: hidden;
-		 background-color: #333;
-		 position: fixed;
-		 top: 0;
-		 width: 100%;
-		 z-index: 1000;
+.header{
+		background-color:#333;
+		overflow-y:hidden;
+		font-family:'Roboto Slab', serif;
+		font-size:16px;
+		position: relative;
 }
 
-li {
-		float: left;
+.header-wrapper{
+		width:100%;
+		margin: 0 auto;
+		text-align: left;
+		position: fixed;
 }
 
-li a {
-		display: block;
+.header ul{
+		background-color:#333;
+		list-style-type:none;
+		padding: 0;
+		margin: 0;
+		top: 0;
+		position: relative;
+}
+
+.header ul li{
+		display: inline-block;
 		color: white;
-		text-align: center;
+}
+
+.header ul li:hover:not(.active){
+		background-color:#888;
+}
+
+.header ul li a,visited{
+		color: white;
+		display: block;
 		padding: 14px 16px;
 		text-decoration: none;
+		text-align: center;
 }
 
-li a:hover:not(.active) {
-		background-color: #111;
+.header ul li:hover ul{
+		display: block;
+}
+
+.header ul ul{
+		display: none;
+		position: absolute;
+		top: 53px;
+		border: 3px solid #333;
+		border-top: 0;
+		margin-left: -3px;
+		min-width: 160px;
+}
+
+.header ul ul li{
+		display: block;
+}
+
+.header ul ul li a,visited{
+		color: white;
+}
+
+.header ul ul li a:hover{
+		color: #731;
 }
 
 .active {
-	background-color: #4CAF50;
+	background-color: #999;
 }
+
 
 /* Animation Delay */
 #logo {
@@ -185,7 +225,8 @@ li a:hover:not(.active) {
 }
 .ticket-box {
 	background-color: white;
-	max-width: 1200px;
+	max-width: 85%;
+	min-width: 40%;
 	margin: 0 auto;
 	position: relative;
 	top: 0;

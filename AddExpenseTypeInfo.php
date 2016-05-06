@@ -28,12 +28,13 @@ $sql = "INSERT INTO ExpenseType (ExpenseTypeName) VALUES ('$Expense')";
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+
+          header('Location: http://www.luistrucking.com/AddExpenseTypeError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good adding Expense Type";
+
+          header('Location: http://www.luistrucking.com/AddExpenseTypeOkay.php');
 }
 
 

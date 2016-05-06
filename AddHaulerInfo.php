@@ -28,12 +28,13 @@ $sql = "INSERT INTO Hauler (HaulerName) VALUES ('$Hauler')";
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+
+	header('Location: http://www.luistrucking.com/AddHaulerError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good adding Hauler";
+
+	header('Location: http://www.luistrucking.com/AddHaulerOkay.php');
 }
 
 

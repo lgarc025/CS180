@@ -10,7 +10,8 @@ $dbname = "LuisTrucking";
 
 
 $Driver =$_COOKIE[uname];
-$Hauler = $_POST["haulername"];
+$Hauler = $_POST["brokername"];
+$Fee = $_POST["rate"];
 
 echo $User;
 echo $Hauler;
@@ -24,16 +25,16 @@ if ($conn->connect_error) {
 } 
 
 //Run Query to authenticate User
-$sql = "INSERT INTO Hauler (HaulerName) VALUES ('$Hauler')";
+$sql = "INSERT INTO Broker (BrokerName ,BrokerFee) VALUES ('$Hauler','$Fee' )";
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+		
+		header('Location: http://www.luistrucking.com/AddBrokerError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good adding Hauler";
+		header('Location: http://www.luistrucking.com/AddBrokerOkay.php');
 }
 
 

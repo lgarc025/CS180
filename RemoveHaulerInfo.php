@@ -28,12 +28,13 @@ $sql = "DELETE FROM Hauler  Where HaulerName='$Hauler'";
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+
+	header('Location: http://www.luistrucking.com/RemoveHaulerError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good Removing Hauler";
+
+	header('Location: http://www.luistrucking.com/RemoveHaulerOkay.php');
 }
 
 

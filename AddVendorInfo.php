@@ -28,12 +28,12 @@ $sql = "INSERT INTO Vendor  (VendorName) VALUES ('$Vendor')";
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+
+          header('Location: http://www.luistrucking.com/AddVendorError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good adding Vendor";
+          header('Location: http://www.luistrucking.com/AddVendorOkay.php');
 }
 
 

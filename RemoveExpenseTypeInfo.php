@@ -26,12 +26,11 @@ $sql = "DELETE FROM ExpenseType Where ExpenseTypeName='$ExpenseType'";
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+          header('Location: http://www.luistrucking.com/RemoveExpenseTypeError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good Removing ExpenseType";
+          header('Location: http://www.luistrucking.com/RemoveExpenseTypeOkay.php');
 }
 
 

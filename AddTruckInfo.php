@@ -31,12 +31,13 @@ $sql = " INSERT INTO Truck (TruckID, TruckType) VALUES ('$TruckID', '$TruckType'
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+
+          header('Location: http://www.luistrucking.com/AddTruckError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good adding Driver";
+
+          header('Location: http://www.luistrucking.com/AddTruckOkay.php');
 }
 
 

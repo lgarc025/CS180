@@ -17,50 +17,103 @@
 <style>
 
 body {margin:0;}
-
-ul {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-		background-color: #333;
-		position: fixed;
-		top: 0;
-		width: 100%;
+.header{
+	background-color:#333;
+	overflow-y:hidden;
+	font-family:'Roboto Slab', serif;
+	font-size:16px;
+	position: relative;
 }
 
-li {
-		float: left;
+.header-wrapper{
+	width:100%;
+	margin: 0 auto;
+	text-align: left;
+	position: fixed;
+	z-index: 99;
 }
 
-li a {
-		display: block;
-		color: white;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
+.header ul{
+	background-color:#333;
+	list-style-type:none;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	position: relative;
+	z-index: 101;
 }
 
-li a:hover:not(.active) {
-		background-color: #88;
+.header ul li{
+	display:inline-block;
+	color: white;
+}
+
+.header ul li:hover{
+	background-color: #888;
+}
+
+.header ul li a,visited{
+	color: white;
+	display:block;
+	padding: 16px;
+	text-decoration: none;
+}
+
+.header ul li a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+.header ul li:hover ul{
+	display: block;
+}
+
+.header ul ul{
+	display: none;
+	position: absolute;
+	top: 53px;
+	z-index:1000;
+}
+
+.header ul ul li{
+	display: block;
 }
 
 .active {
-		background-color: #888;
+	background-color:#999;
 }
 
 </style>
 </head>
 <body>
-<ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#news">Haulers</a></li>
-	<li><a href="#contact1">Brokers</a></li>
-	<li><a class="active" href="#about3">Drivers</a></li>
-    <li><a href="#home4">Trucks</a></li>
-    <li><a href="#news3">Expenses</a></li>
-	<li><a href="luistrucking.html">Logout</a></li>
-</ul>
+<div class="header">
+	<div class="header-wrapper">
+	<ul>
+    	<li><a href="home.php">Home</a></li><li>
+		<li><a  href="#tic">Tickets</a>
+			<ul>
+
+				<li><a href="/DriverAddTicket.php">Add Tickets</a></li>
+				<li><a href="/DriverRemoveTicket.php">Remove Tickets</a></li>
+   			</ul></li><li>
+    		<a href="#exp">Expenses</a>
+			<ul>
+
+				<li><a href="/DriverAddExpense.php">Add Expense</a></li>
+  			</ul></li><li>
+   			<a class="active"href="#rep">Reports</a>
+			<ul>
+				<li><a href="/DisplayDriverTicket.php">Pay Report</a></li>
+  			</ul></li><li>
+			<a href="#acc">Account</a>
+			<ul>
+				<li><a href="/ChangeDriverPassword.php">Change Password</a></li>
+  			</ul></li>
+		<li style = "float:right"><a href="logout.php">Logout</a></li>
+ 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
+ 	</ul>
+ 	</div>
+ </div>
 
 
      <div class="container">

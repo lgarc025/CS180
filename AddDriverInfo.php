@@ -35,12 +35,13 @@ $sql = "INSERT INTO Driver ( DriverName, login, password, PayRate) VALUES ('$Nam
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+
+		header('Location: http://www.luistrucking.com/AddDriverError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good adding Driver";
+
+		header('Location: http://www.luistrucking.com/AddDriverOkay.php');
 }
 
 
