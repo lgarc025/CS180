@@ -13,11 +13,10 @@
 	<link rel="stylesheet" href="css/dropStyle.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <style>
 
 body {margin:0;}
-
-
 .header{
 	background-color:#333;
 	overflow-y:hidden;
@@ -91,42 +90,24 @@ body {margin:0;}
 	<div class="header-wrapper">
 	<ul>
     	<li><a href="home.php">Home</a></li><li>
-		<a class="active" href="#hauler">Haulers</a>
-			<ul>
-				<li><a  href="/AddHauler.php">Add Hauler</a></li>
-				<li><a href="/RemoveHauler.php">Remove Hauler</a></li>
-  			</ul></li><li>
-
-		<li><a href="#brk">Brokers</a>
+		<li><a class="active" href="#tic">Tickets</a>
 			<ul>
 
-				<li><a href="/OwnerDisplayBrokerTicket.php">View Tickets</a></li>
-				<li><a href="/OwnerPaidTicket.php">Update Paid Tickets</a></li>
-				<li><a href="/AddBroker.php">Add Broker</a></li>
-				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
+				<li><a href="/DriverAddTicket.php">Add Tickets</a></li>
+				<li><a href="/DriverRemoveTicket.php">Remove Tickets</a></li>
    			</ul></li><li>
-    		<a href="#drvr">Driver</a>
+    		<a href="#exp">Expenses</a>
 			<ul>
 
-				<li><a href="/AddDriver.php">Add Ticket</a></li>
-				<li><a href="/OwnerDisplayDriverTicket.php">View Tickets</a></li>
-				<li><a href="/OwnerApproveTicket.php">Approve Tickets</a></li>
-				<li><a href="/AddDriver.php">Add Driver</a></li>
-				<li><a href="/RemoveDriver.php">Remove Driver</a></li>
+				<li><a href="/DriverAddExpense.php">Add Expense</a></li>
   			</ul></li><li>
-   			<a href="#trk">Trucks</a>
+   			<a href="#rep">Reports</a>
 			<ul>
-				<li><a href="/AddTruck.php">Add Truck</a></li>
-				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
+				<li><a href="/DisplayDriverTicket.php">Pay Report</a></li>
   			</ul></li><li>
-			<a href="#ex">Expenses</a>
+			<a href="#acc">Account</a>
 			<ul>
-
-				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
-				<li><a href="/AddVendor.php">Add Vendor</a></li>
-				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
-				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
-				<li><a href="/RemoveExpenseType.php">Remove Expense Type</a></li>
+				<li><a href="/ChangeDriverPassword.php">Change Password</a></li>
   			</ul></li>
 		<li style = "float:right"><a href="logout.php">Logout</a></li>
  		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
@@ -135,39 +116,71 @@ body {margin:0;}
  </div>
 
 
-
-
-
-<div class="container">
+     <div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Add New Broker</h2>
-			<form action="AddBrokerInfo.php" method="post">
+				<h2>New Ticket Entry </h2>
+			<form action="GetTicketInfo.php" method="post">
 			</div>
+			<label for="TruckID">Truck ID:</label>
+			<br/>
+			<select name='taskOption' id='taskOption'>
+			<?php
+				require('./GetTruckID.php');
+			?>
+			</select>
+			<br/>
+			
+		<label for="driver">Driver:</label>
+			<br/>
+			<select name='driver' id='driver'>
+			<?php
+				require('./GetDriver.php');
+			?>
+			</select>
+			<br/>
 
-			<?php echo 'Broker Added!'; ?>
+			<label for="Hauler">Hauler:</label>
 			<br/>
+			<select name='hauler' id='hauler'>
+			<?php
+				require('./GetHaulers.php');
+			?>
+			</select>
 			<br/>
-			<label for="haulername">Enter Broker  Name:</label>
-			<br/>
-			<input type="text" name="brokername" id="brokername">
-			<br/>
-            <label for="haulername">Enter Broker Fee Rate:</label>
-			<br/>
-			<input type="number" name="rate" id="rate">
+			<label for="Broker">Broker:</label>
 			<br/>
 
-			<button type="submit">Add Broker</button>
-
+			<select name='broker' id='broker'>
+			<?php
+				require('./GetBrokers.php');
+			?>
+			</select>
+			<br/>
+			<label for="time">Date:</label>
+			<br/>
+			<input type="date" name="date" id="date">
+			<br/>
+			<label for="user">Ticket ID:</label>
+			<br/>
+			<input type="text" name="user" id="user">
+			<br/>
+			<label for="payrate">Pay Rate:</label>
+			<br/>
+			<input type="float" name="payrate" id="payrate">
+			<br/>
+			<label for="tons">Tons/Hours:</label>
+			<br/>
+			<input type="float" name="tons" id="tons">
+			<br/>
+			<button type="submit">Submit</button>
 			<br/>
 			</form>
-
 		</div>
 	</div>
-
 
 </body>
 
@@ -179,5 +192,3 @@ body {margin:0;}
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');
 	});
-</script>
-</html>

@@ -1,3 +1,7 @@
+<?php 
+	 //if(!isset($_COOKIE["uname"]))
+	 //{header('Location: http://www.luistrucking.com/');}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

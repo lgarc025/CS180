@@ -21,6 +21,13 @@ echo $Login;
 echo $Password;
 echo $PayRate;
 
+if (strlen($Name) == 0 || strlen($Login) == 0 || strlen($Password) == 0 || strlen($PayRate) == 0 || $PayRate == 0 )
+{
+
+		header('Location: http://www.luistrucking.com/AddDriverError.php');
+		return;
+}
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 

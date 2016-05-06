@@ -15,6 +15,13 @@ $Expense = $_POST["expensetype"];
 echo $User;
 echo $Expense;
 
+if (strlen($Expense) == 0)
+{
+
+          header('Location: http://www.luistrucking.com/AddExpenseTypeError.php');
+ 		return;
+}
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 

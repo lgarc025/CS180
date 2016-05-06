@@ -23,6 +23,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
+if (strlen($Vendor) == 0)
+{
+ 		  header('Location: http://www.luistrucking.com/AddVendorError.php');
+ 		return;
+}
+
 //Run Query to authenticate User
 $sql = "INSERT INTO Vendor  (VendorName) VALUES ('$Vendor')";
 

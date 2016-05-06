@@ -16,6 +16,16 @@ $Fee = $_POST["rate"];
 echo $User;
 echo $Hauler;
 
+echo strlen($Hauler);
+
+if (strlen($Hauler) == 0 || strlen($Fee) == 0 )
+{
+
+		header('Location: http://www.luistrucking.com/AddBrokerError.php');
+
+		return;
+}
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
