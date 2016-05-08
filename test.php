@@ -1,191 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+// Helper method to get a string description for an HTTP status code
+// From http://www.gen-x-design.com/archives/create-a-rest-api-with-php/
+function getStatusCodeMessage($status)
+{
+// these could be stored in a .ini file and loaded
+// via parse_ini_file()... however, this will suffice
+// for an example
+$codes = Array(
+100 => 'Continue',
+101 => 'Switching Protocols',
+200 => 'OK',
+201 => 'Created',
+202 => 'Accepted',
+203 => 'Non-Authoritative Information',
+204 => 'No Content',
+205 => 'Reset Content',
+206 => 'Partial Content',
+300 => 'Multiple Choices',
+301 => 'Moved Permanently',
+302 => 'Found',
+303 => 'See Other',
+304 => 'Not Modified',
+305 => 'Use Proxy',
+306 => '(Unused)',
+307 => 'Temporary Redirect',
+400 => 'Bad Request',
+401 => 'Unauthorized',
+402 => 'Payment Required',
+403 => 'Forbidden',
+404 => 'Not Found',
+405 => 'Method Not Allowed',
+406 => 'Not Acceptable',
+407 => 'Proxy Authentication Required',
+408 => 'Request Timeout',
+409 => 'Conflict',
+410 => 'Gone',
+411 => 'Length Required',
+412 => 'Precondition Failed',
+413 => 'Request Entity Too Large',
+414 => 'Request-URI Too Long',
+415 => 'Unsupported Media Type',
+416 => 'Requested Range Not Satisfiable',
+417 => 'Expectation Failed',
+500 => 'Internal Server Error',
+501 => 'Not Implemented',
+502 => 'Bad Gateway',
+503 => 'Service Unavailable',
+504 => 'Gateway Timeout',
+505 => 'HTTP Version Not Supported'
+);
 
-<head>
-	<meta charset="utf-8">
-	<title>Luis Trucking - Sign In </title>
-
-	<!-- Google Fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Custom Stylesheet -->
-	<link rel="stylesheet" href="css/dropStyle.css">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-<style>
-body {margin:0;}
-
-.header{
-	background-color:#333;
-	overflow-y:hidden;
-	font-family:'Roboto Slab', serif;
-	font-size:16px;
-	position: relative;
+return (isset($codes[$status])) ? $codes[$status] : '';
 }
 
-.header-wrapper{
-	width:100%;
-	margin: 0 auto;
-	text-align: left;
-	position: fixed;
-	z-index: 99;
+// Helper method to send a HTTP response code/message
+function sendResponse($status = 200, $body = '', $content_type = 'text/html')
+{
+$status_header = 'HTTP/1.1 ' . $status . ' ' . getStatusCodeMessage($status);
+header($status_header);
+header('Content-type: ' . $content_type);
+echo $body;
 }
 
-.header ul{
-	background-color:#333;
-	list-style-type:none;
-	padding: 0;
-	margin: 0;
-	top: 0;
-	position: relative;
-	z-index: 101;
+function dBconnect(){
+
+if (isset($_POST["login"]) && isset($_POST["password"])) {
+
+$user_id = $_POST["login"];
+$pass = $_POST["password"];
+
+$servername = "luis.cylcbbatmizc.us-west-2.rds.amazonaws.com";
+$username = "Luis";
+$password = "Luis1234";
+$dbname = "LuisTrucking";
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
 }
 
-.header ul li{
-	display:inline-block;
-	color: white;
+$sql = "SELECT login, password FROM Driver";
+$result = $conn->query($sql);
+
+
+$validUser = False;
+$validPass = False;
+
+while($row = $result->fetch_assoc()) {
+if($row[login] == $user_id){
+$validUser = True;
+
+}
+if($row[password] == $pass){
+
+$validPass = True;
+}
+}
+$conn->close();
+
+if ($validUser == False) {
+sendResponse(403, 'User Not Found');
+return false;
 }
 
-.header ul li:hover{
-	background-color: #888;
+if ($validPass == False) {
+sendResponse(400, 'Invalid Pssword');
+return false;
 }
 
-.header ul li a,visited{
-	color: white;
-	display:block;
-	padding: 16px;
-	text-decoration: none;
+if($validUser && $validPass){
+sendResponse(200, 'Valid Login');
+return true;
 }
 
-.header ul li a:hover{
-	color: white;
-	text-decoration: none;
+
 }
 
-.header ul li:hover ul{
-	display: block;
 }
+dBconnect();
 
-.header ul ul{
-	display: none;
-	position: absolute;
-	top: 53px;
-	z-index:1000;
-}
-
-.header ul ul li{
-	display: block;
-}
-
-.active {
-	background-color:#999;
-}
-
-</style>
-</head>
-<body>
-<div class="header">
-	<div class="header-wrapper">
-	<ul>
-    	<li><a href="home.php">Home</a></li>
-		<li><a href="#brk">Brokers</a>
-			<ul>
-				<li><a href="#brk">Add Broker</a></li>
-				<li><a href="#brk">Remove Broker</a></li>
-   			</ul></li><li>
-    		<a href="#drvr">Driver</a>
-			<ul>
-				<li><a href="#dr1">Add Driver</a></li>
-				<li><a href="#dr2">Remove Driver</a></li>
-  			</ul></li><li>
-   			<a href="#trk">Trucks</a>
-			<ul>
-				<li><a href="#trk1">Add Truck</a></li>
-				<li><a href="#trk2">Remove Truck</a></li>
-  			</ul></li><li>
-			<a class="active" href="#ex">Expenses</a>
-			<ul>
-				<li><a href="#ex1">Add Vendor</a></li>
-				<li><a href="#ex2">Remove Vendor</a></li>
-				<li><a href="#ex3">Add Expense Type</a></li>
-				<li><a href="#ex4">Remove Expense Type</a></li>
-  			</ul></li>
-		<li style = "float:right"><a href="luistrucking.html">Logout</a></li>
- 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;">(user) Hi!</li>
- 	</ul>
- 	</div>
- </div>
-
-
-
-
-
-
-     <div class="container">
-		<div class="top">
-			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
-		</div>
-		<div class="ticket-box animated fadeInUp">
-			<div class="box-header">
-				<h2>New Expense Entry </h2>
-			<form action="GetTicketInfo.php" method="post">
-			</div>
-			<label for="TruckID">Truck ID:</label>
-			<br/>
-			<select name='taskOption' id='taskOption'>
-			<?php
-				require('./GetTruckID.php');
-			?>
-			</select>
-			<br/>
-
-			<label for="Broker">Expense Type:</label>
-			<br/>
-
-			<label for="Hauler">Driver:</label>
-			<br/>
-			<select name='hauler' id='hauler'>
-			<?php
-				require('./GetHaulers.php');
-			?>
-			</select>
-			<br/>
-			<label for="Broker">Vendor:</label>
-			<br/>
-
-			<select name='broker' id='broker'>
-			<?php
-				require('./GetBrokers.php');
-			?>
-			</select>
-			<br/>
-			<label for="time">Date:</label>
-			<br/>
-			<input type="date" name="date" id="date">
-			<br/>
-			<label for="description">Description</label>
-			<br/>
-			<input type="text" name="description" id="description">
-			<br/>
-			<label for="amount">Amount:</label>
-			<br/>
-			<input type="float" name="amount" id="amount">
-			<br/>
-			<button type="submit">Submit</button>
-			<br/>
-			</form>
-		</div>
-	</div>
-
-</body>
-
-<script>
-	$(document).ready(function () {
-    	$('#logo').addClass('animated fadeInDown');
-    	$("input:text:visible:first").focus();
-	});
-	$('#username').focus(function() {
-		$('label[for="username"]').addClass('selected');
-	});
+?>
