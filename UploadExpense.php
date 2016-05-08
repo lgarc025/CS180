@@ -27,6 +27,12 @@ echo $Amount;
 echo $Description;
 echo $Date;
 
+if (strlen($Date) == 0 || strlen($Description) == 0 || strlen($Amount) == 0 || $Amount == 0 )
+{
+
+		header('Location: http://www.luistrucking.com/DriverAddExpenseError.php');
+		return;
+}
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -43,12 +49,13 @@ echo $sql;
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+
+		header('Location: http://www.luistrucking.com/DriverAddExpenseError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good adding Ticket";
+
+		header('Location: http://www.luistrucking.com/DriverAddExpenseOkay.php');
 }
 
 

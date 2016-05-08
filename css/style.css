@@ -38,7 +38,7 @@ h2 {
 
 a {
 	text-decoration: none;
-	color: #666;
+	color: #333;
 }
 
 a:hover {
@@ -80,7 +80,7 @@ p.small {
 }
 
 .login-box .box-header {
-	background-color: #665851;
+	background-color: #333;
 	margin-top: 0;
 	border-radius: 5px 5px 0 0;
 }
@@ -88,7 +88,7 @@ p.small {
 .login-box label {
 	font-weight: 700;
 	font-size: .8em;
-	color: #888;
+	color: #777;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	line-height: 2em;
@@ -100,7 +100,7 @@ p.small {
 	border: 1px solid #ccc;
 	border-radius: 2px;
 	font-size: .9em;
-	color: #888;
+	color: #333;
 }
 
 .login-box input:focus {
@@ -120,7 +120,7 @@ p.small {
 	font-weight: 400;
 	font-size: 0.7em;
 	letter-spacing: 1px;
-	background-color: #665851;
+	background-color: #777;
 	cursor:pointer;
 	outline: none;
 }

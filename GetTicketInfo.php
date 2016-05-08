@@ -19,18 +19,14 @@ $PayRate =$_POST["payrate"];
 $Broker =$_POST["broker"];
 $Date =$_POST["date"];
 
-echo $User;
-echo $Broker;
-echo $TruckID;
-echo $Hauler;
-echo $TicketID;
-echo $Tons;
-echo $PayRate;
-echo $Date;
 $Amount = $PayRate * $Tons;
-echo $Driver; 
+if (strlen($Date) == 0 || strlen($PayRate) == 0 || strlen($TicketID) == 0 || strlen($PayRate) == 0 || strlen($Hauler) == 0 || $PayRate == 0 || $Tons == 0 )
+{
 
-echo $Amount;
+		header('Location: http://www.luistrucking.com/DriverAddTicketError.php');
+		return;
+}
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -45,12 +41,11 @@ $sql = "INSERT INTO Ticket (TicketID, TicketDate, Rate, Amount, Total, DriverNam
 
 if(!mysqli_query($conn,$sql))
 {
-		echo "Failure";
+		header('Location: http://www.luistrucking.com/DriverAddTicketError.php');
 }
 else
 {
-		//echo $sql;
-		echo "All Good adding Ticket";
+		header('Location: http://www.luistrucking.com/DriverAddTicketOkay.php');
 }
 
 

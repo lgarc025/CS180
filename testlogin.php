@@ -36,10 +36,10 @@ if ($result->num_rows > 0)
 					 //Set Cookies
 					 $cookie_name = "login";
 					 $cookie_value = $login;
-					 setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+					 setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/');
 					 $cookie_name = "uname";
 					 $cookie_value = "$row[DriverName]";
-					 setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+					 setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/');
 
 
 					 if(!isset($_COOKIE[$cookie_name])) {

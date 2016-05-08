@@ -33,26 +33,16 @@ echo $row[password];
 
 if($NewP2 != $NewP ||  $OldP != $row[password])
 {	
-		echo"Error With Passwords!";
+	    header('Location: http://www.luistrucking.com/ChangeDriverPasswordError.php');
+		return;
 }
 else
 {
 		 echo "Changed Password!";
 		 $sql = "Update Driver Set password='$NewP' Where login='$Driver'";
 		 $A =  mysqli_query($conn,$sql);
-}
-
-
-//Run Query to authenticate User
-
-
-if(!$A)
-{
-		echo "Failure";
-}
-else
-{
-		echo "All Good Changing Password";
+	    header('Location: http://www.luistrucking.com/ChangeDriverPasswordOkay.php');
+		return;
 }
 
 ?>

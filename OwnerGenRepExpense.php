@@ -10,14 +10,12 @@
 
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Custom Stylesheet -->
-	<link rel="stylesheet" href="css/dropStyle.css">
+	<link rel="stylesheet" href="css/styleDisplayDriverData.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <style>
-
 body {margin:0;}
-
 .header{
 	background-color:#333;
 	overflow-y:hidden;
@@ -105,7 +103,7 @@ body {margin:0;}
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
    			</ul></li><li>
-    		<a href="#drvr">Driver</a>
+    		<a class="active" href="#drvr">Driver</a>
 			<ul>
 
 				<li><a href="/AddDriver.php">Add Ticket</a></li>
@@ -119,7 +117,7 @@ body {margin:0;}
 				<li><a href="/AddTruck.php">Add Truck</a></li>
 				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
   			</ul></li><li>
-			<a class="active" href="#ex">Expenses</a>
+			<a href="#ex">Expenses</a>
 			<ul>
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
@@ -135,20 +133,68 @@ body {margin:0;}
  </div>
 
 
+
+
      <div class="container">
 		<div class="top">
-			<h1 id="title" class="hidden"><span id="logout.php"><br/> </h1>
+			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Add New Expense Type: </h2>
-			<form action="AddExpenseTypeInfo.php" method="post">
+				<h2>View Expenses </h2>
+			<form action="OwnerGenRepExpense.php" method="post">
 			</div>
-			<label for="expensetype">Expense Type:</label>
+			<label for="driver">Select Vendor:</label>
 			<br/>
-			<input type="text" name="expensetype" id="expensetype">
+			<select name='vendor' id='vendor'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetVendor.php');
+			?>
+			</select>
 			<br/>
-			<button type="submit">Add Expense Type</button>
+			<label for="driver">Select Expense Type:</label>
+			<br/>
+			<select name='type' id='type'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetExpenseType.php');
+			?>
+			</select>
+			<br/>
+
+			<label for="driver">Select Driver:</label>
+			<br/>
+			<select name='driver' id='driver'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetDriver.php');
+			?>
+			</select>
+			<br/>
+
+			<label for="driver">Select TruckID:</label>
+			<br/>
+			<select name='truckid' id='truckid'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetTruckID.php');
+			?>
+			</select>
+			<br/>
+            <br/>
+			<label for="time">Start Date:</label>
+			<br/>
+			<input type="date" name="startdate" id="date">
+			<br/>
+			<label for="time">End Date:</label>
+			<br/>
+			<input type="date" name="enddate" id="enddate">
+			<br/>
+			<button type="submit">Generate Report</button>
+			<br/>
+			<br/>
+			<?php include('OwnerViewExpenseInfo.php'); ?>
 			<br/>
 			</form>
 		</div>
