@@ -2,7 +2,7 @@
 
 	function get_data_expense ()
 	{
-			 
+			
 			 //Create a Broker Array
 			 $Brokers=array();
 

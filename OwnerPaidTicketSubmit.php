@@ -9,14 +9,14 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+die("Connection failed: " . $conn->connect_error);
 }
 //For Ever Item in the list
 if(!empty($_POST['check_list']))
 {
-		foreach($_POST['check_list'] as $check) 
+		foreach($_POST['check_list'] as $check)
 		{
-	 		echo $check; 
+	 		echo $check;
 			$sql = "UPDATE Ticket SET Paid='1' Where TicketID='$check'";
 			$result = $conn->query($sql);
 		}
@@ -29,6 +29,6 @@ if(!empty($_POST['check_list']))
 $conn->close();
 
 
-            header('Location: http://www.luistrucking.com/OwnerPaidTicket.php');
+header('Location: http://www.luistrucking.com/OwnerPaidTicket.php');
 
 ?>

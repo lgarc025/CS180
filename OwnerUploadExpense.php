@@ -31,8 +31,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+die("Connection failed: " . $conn->connect_error);
+}
 
 //Run Query to authenticate User
 $sql = "INSERT INTO Expense (ExpenseDate, ExpenseType, VendorName, Amount, DriverName, TruckID, Details)
@@ -42,12 +42,12 @@ echo $sql;
 
 if(!mysqli_query($conn,$sql))
 {
-          header('Location: http://www.luistrucking.com/OwnerAddExpenseError.php');
+header('Location: http://www.luistrucking.com/OwnerAddExpenseError.php');
 }
 else
 {
 
-          header('Location: http://www.luistrucking.com/OwnerAddExpenseOkay.php');
+header('Location: http://www.luistrucking.com/OwnerAddExpenseOkay.php');
 }
 
 

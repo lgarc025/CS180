@@ -10,29 +10,12 @@
 
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Custom Stylesheet -->
-	<link rel="stylesheet" href="css/dropStyle.css">
+	<link rel="stylesheet" href="css/styleDisplayDriverData.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="jquery.js" type="text/javascript"></script>
-	<script src="jquery.ui.draggable.js" type="text/javascript"></script>
-	
-	 <script src="jquery.alerts.js" type="text/javascript"></script>
-	 <link href="jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
-
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	 <script>
-	 $(document).ready(function(){
-			     $("button").click(function(){
-						         $("#test").hide();
-								     });
-	 });
-	 </script>
 
 <style>
-
 body {margin:0;}
-
-
 .header{
 	background-color:#333;
 	overflow-y:hidden;
@@ -106,9 +89,9 @@ body {margin:0;}
 	<div class="header-wrapper">
 	<ul>
 	<li><a href="home.php">Home</a></li><li>
-		<a class="active" href="#hauler">Haulers</a>
+		<a href="#hauler">Haulers</a>
 			<ul>
-				<li><a  href="/AddHauler.php">Add Hauler</a></li>
+				<li><a href="/AddHauler.php">Add Hauler</a></li>
 				<li><a href="/RemoveHauler.php">Remove Hauler</a></li>
 			</ul></li><li>
 
@@ -120,7 +103,7 @@ body {margin:0;}
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a href="#drvr">Driver</a>
+		<a class="active" href="#drvr">Driver</a>
 			<ul>
 
 				<li><a href="/AddDriver.php">Add Ticket</a></li>
@@ -138,6 +121,7 @@ body {margin:0;}
 			<ul>
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
+<li><a href=/OwnerViewExpense.php>View Expense</a></li>
                 <li><a href=/OwnerViewExpense.php>View Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
@@ -153,37 +137,70 @@ body {margin:0;}
 
 
 
-
 <div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Add New Broker</h2>
-			<form action="AddBrokerInfo.php" method="post">
+				<h2>Remove Expense Entries </h2>
+			<form action="OwnerGenRepExpense.php" method="post">
 			</div>
+			<label for="driver">Select Vendor:</label>
+			<br/>
+			<select name='vendor' id='vendor'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetVendor.php');
+			?>
+			</select>
+			<br/>
+			<label for="driver">Select Expense Type:</label>
+			<br/>
+			<select name='type' id='type'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetExpenseType.php');
+			?>
+			</select>
+			<br/>
 
-			Error Adding Broker, Try Again!
+			<label for="driver">Select Driver:</label>
 			<br/>
-			<br/>
-			<label for="haulername">Enter Broker  Name:</label>
-			<br/>
-			<input type="text" name="brokername" id="brokername">
-			<br/>
-<label for="haulername">Enter Broker Fee Rate:</label>
-			<br/>
-			<input type="number" name="rate" id="rate">
+			<select name='driver' id='driver'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetDriver.php');
+			?>
+			</select>
 			<br/>
 
-			<button type="submit">Add Broker</button>
-
+			<label for="driver">Select TruckID:</label>
+			<br/>
+			<select name='truckid' id='truckid'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetTruckID.php');
+			?>
+			</select>
+			<br/>
+<br/>
+			<label for="time">Start Date:</label>
+			<br/>
+			<input type="date" name="startdate" id="date">
+			<br/>
+			<label for="time">End Date:</label>
+			<br/>
+			<input type="date" name="enddate" id="enddate">
+			<br/>
+			<button type="submit">Generate Report</button>
+			<br/>
+			<br/>
+			<?//php include('DisplayDriverTicketInfo.php'); ?>
 			<br/>
 			</form>
-
 		</div>
 	</div>
-
 
 </body>
 
@@ -195,5 +212,3 @@ body {margin:0;}
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');
 	});
-</script>
-</html>

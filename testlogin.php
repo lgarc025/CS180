@@ -15,8 +15,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+die("Connection failed: " . $conn->connect_error);
+}
 
 //Run Query to authenticate User
 $sql = "SELECT DriverName, password FROM Driver Where login='$login'";
@@ -27,9 +27,9 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0)
 {
 		//Get Data From User
-   		 while($row = $result->fetch_assoc())
+		 while($row = $result->fetch_assoc())
 		 {
-       		 if($row[password] == $password_u)
+		 if($row[password] == $password_u)
 			 {
 					 echo "Welcome ";
 					 echo "$row[DriverName]";
@@ -49,22 +49,22 @@ if ($result->num_rows > 0)
 								     echo "Value is: " . $_COOKIE[$cookie_name];
 					 }
 
-            header('Location: http://www.luistrucking.com/home.php');
+header('Location: http://www.luistrucking.com/home.php');
 
 			 }
-			 else 
+			 else
 			 {
-                     echo "Wrong UserName or Password!";
+echo "Wrong UserName or Password!";
 	                 echo "<script> alert('Wrong UserName or Password!')</script>";
 
 
 			 }
-   		 }
+		 }
 }
 else
 {		
 		echo "Wrong UserName or Password!";
-        header("Location: " . $_SERVER["HTTP_REFERER"]);
+header("Location: " . $_SERVER["HTTP_REFERER"]);
 	    echo "<script> alert('Wrong UserName or Password!')</script>";
 }
 $conn->close();

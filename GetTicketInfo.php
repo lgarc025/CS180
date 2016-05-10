@@ -33,8 +33,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+die("Connection failed: " . $conn->connect_error);
+}
 
 //Run Query to authenticate User
 $sql = "INSERT INTO Ticket (TicketID, TicketDate, Rate, Amount, Total, DriverName, TruckID, BrokerName, Approval, Paid, HaulerName) VALUES ('$TicketID', '$Date', '$PayRate','$Tons','$Amount', '$Driver', '$TruckID', '$Broker', FALSE, FALSE, '$Hauler')";

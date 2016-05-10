@@ -2,7 +2,7 @@
 
 	function get_data_vendor ()
 	{
-			 
+			
 			 //Create a Broker Array
 			 $Brokers=array();
 

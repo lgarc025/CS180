@@ -3,7 +3,7 @@
 	
 	function get_data_2 ()
 	{
-			 
+			
 			 //Create a Broker Array
 			 $Haulers=array();
 
@@ -25,4 +25,3 @@
 			 echo json_encode($Haulers);
 	}
 	get_data_2();
-?>

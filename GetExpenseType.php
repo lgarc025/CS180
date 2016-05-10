@@ -16,7 +16,7 @@
 
 	function get_data_expense ($std)
 	{
-			 
+			
 			 //Create a Broker Array
 			 $Brokers=array();
 

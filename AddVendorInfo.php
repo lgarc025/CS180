@@ -20,13 +20,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+die("Connection failed: " . $conn->connect_error);
+}
 
 if (strlen($Vendor) == 0)
 {
- 		  header('Location: http://www.luistrucking.com/AddVendorError.php');
- 		return;
+		  header('Location: http://www.luistrucking.com/AddVendorError.php');
+		return;
 }
 
 //Run Query to authenticate User
@@ -35,11 +35,11 @@ $sql = "INSERT INTO Vendor  (VendorName) VALUES ('$Vendor')";
 if(!mysqli_query($conn,$sql))
 {
 
-          header('Location: http://www.luistrucking.com/AddVendorError.php');
+header('Location: http://www.luistrucking.com/AddVendorError.php');
 }
 else
 {
-          header('Location: http://www.luistrucking.com/AddVendorOkay.php');
+header('Location: http://www.luistrucking.com/AddVendorOkay.php');
 }
 
 

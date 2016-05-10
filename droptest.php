@@ -95,7 +95,7 @@ li a:hover:not(.active) {
 </head>
 <body>
 <ul>
-    <li><a href="home.php">Home</a></li>
+<li><a href="home.php">Home</a></li>
 
 
 <li class="dropdown">
@@ -111,14 +111,14 @@ li a:hover:not(.active) {
 			<a href="RemoveHauler.php">Remove Hauler</a>
 		</div>
 	</li>
-    <li class="dropdown">
+<li class="dropdown">
 		<button class="dropbtn" href="#drvr">Brokers</a>
 		<div class="dropdown-content">
 			<a href="AddBroker.php">Add Broker</a>
 			<a href="RemoveBroker.php">Remove Broker</a>
 		</div>
 	</li>
-    <li class="dropdown">
+<li class="dropdown">
 		<button class="dropbtn" href="#drvr">Driver</a>
 		<div class="dropdown-content">
 			<a href="AddDriver.php">Add Driver</a>
@@ -127,14 +127,14 @@ li a:hover:not(.active) {
 			<a href="ChangeDriverPassword.php">Change Password</a>
 		</div>
 	</li>
-    <li class="dropdown">
+<li class="dropdown">
 		<button class="dropbtn" href="#trk">Trucks</a>
 		<div class="dropdown-content">
 			<a href="AddTruck.php">Add Truck</a>
 			<a href="RemoveTruck.php">Remove Truck</a>
 		</div>
 	</li>
-    <li class="dropdown">
+<li class="dropdown">
 		<button class="dropbtn" href="#ex">Expenses</a>
 		<div class="dropdown-content">
 			<a href="AddVendor.php">Add Vendor</a>
@@ -148,7 +148,7 @@ li a:hover:not(.active) {
 	<li style = "float:right; color:#fff; background-color:#333; padding: 14px 16px;" >Hi (user)!</li>
 </ul>
 
-     <div class="container">
+<div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
@@ -208,8 +208,8 @@ li a:hover:not(.active) {
 
 <script>
 	$(document).ready(function () {
-    	$('#logo').addClass('animated fadeInDown');
-    	$("input:text:visible:first").focus();
+	$('#logo').addClass('animated fadeInDown');
+	$("input:text:visible:first").focus();
 	});
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');

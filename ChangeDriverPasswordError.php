@@ -89,34 +89,34 @@ body {margin:0;}
 <div class="header">
 	<div class="header-wrapper">
 	<ul>
-    	<li><a href="home.php">Home</a></li><li>
+	<li><a href="home.php">Home</a></li><li>
 		<li><a href="#tic">Tickets</a>
 			<ul>
 
 				<li><a href="/DriverAddTicket.php">Add Tickets</a></li>
 				<li><a href="/DriverRemoveTicket.php">Remove Tickets</a></li>
-   			</ul></li><li>
-    		<a href="#exp">Expenses</a>
+			</ul></li><li>
+		<a href="#exp">Expenses</a>
 			<ul>
 
 				<li><a href="/DriverAddExpense.php">Add Expense</a></li>
-  			</ul></li><li>
-   			<a href="#rep">Reports</a>
+			</ul></li><li>
+			<a href="#rep">Reports</a>
 			<ul>
 				<li><a href="/DisplayDriverTicket.php">Pay Report</a></li>
-  			</ul></li><li>
+			</ul></li><li>
 			<a class="active" href="#acc">Account</a>
 			<ul>
 				<li><a href="/ChangeDriverPassword.php">Change Password</a></li>
-  			</ul></li>
+			</ul></li>
 		<li style = "float:right"><a href="logout.php">Logout</a></li>
- 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
- 	</ul>
- 	</div>
- </div>
+		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
+	</ul>
+	</div>
+</div>
 
 
-     <div class="container">
+<div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
@@ -149,8 +149,8 @@ body {margin:0;}
 
 <script>
 	$(document).ready(function () {
-    	$('#logo').addClass('animated fadeInDown');
-    	$("input:text:visible:first").focus();
+	$('#logo').addClass('animated fadeInDown');
+	$("input:text:visible:first").focus();
 	});
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');

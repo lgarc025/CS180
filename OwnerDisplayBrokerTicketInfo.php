@@ -14,7 +14,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+die("Connection failed: " . $conn->connect_error);
 }
 //Run Query to authenticate User
 $sql = "SELECT * FROM Ticket Where TicketDate Between '$start' and '$end' and BrokerName ='$user'  ORDER BY TicketDate DESC";
@@ -35,7 +35,7 @@ $PayRate = $rowresult[BrokerFee];
 $DriverTotal = (((100 - $PayRate) * $rowsum1['SUM(Total)'])/100);
 $DueTotal = (((100 - $PayRate) * $rowsum['SUM(Total)'])/100);
 
-echo "From: $start to $end for $user "; 
+echo "From: $start to $end for $user ";
 echo "<table id='t01' class='center'>"; // start a table tag in the HTML
 echo "<tr> <th>TicketID</th> <th>Date</th> <th>TruckID</th> <th>Hauler</th> <th>Driver</th> <th>Rate</th> <th>Tons/Hours</th> <th>Total</th> <th>Approval</th>  <th>Paid Status</th> </tr> ";
 
@@ -54,7 +54,7 @@ while($row = $result->fetch_assoc())
 				$Paid="Not Paid";
 
 		}
-		echo "<tr><td>" . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['DriverName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . $row['Amount'] . "</td><td>" ." $". $row['Total'] . "</td><td>". "$Approval" .  "</td><td>". "$Paid" . "</td></tr>";  
+		echo "<tr><td>" . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['DriverName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . $row['Amount'] . "</td><td>" ." $". $row['Total'] . "</td><td>". "$Approval" .  "</td><td>". "$Paid" . "</td></tr>";
 		//$row['index'] the index here is a field name
 
 }

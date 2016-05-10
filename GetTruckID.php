@@ -16,7 +16,7 @@
 
 	function get_data ($std)
 	{
-			 
+			
 			 //Create a Broker Array
 			 $Brokers=array();
 
@@ -38,6 +38,6 @@
 			 return $Brokers;
 	}
 
-	  echo get_broker(); 
+	  echo get_broker();
 ?>
 

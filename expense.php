@@ -53,17 +53,17 @@ li a:hover:not(.active) {
 </head>
 <body>
 <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#news">Haulers</a></li>
+<li><a href="#home">Home</a></li>
+<li><a href="#news">Haulers</a></li>
 	<li><a href="#contact1">Brokers</a></li>
 	<li><a href="/home.php">Drivers</a></li>
-    <li><a href="#home4">Trucks</a></li>
-    <li><a class="active" href="/expense.php">Expenses</a></li>
+<li><a href="#home4">Trucks</a></li>
+<li><a class="active" href="/expense.php">Expenses</a></li>
 	<li><a href="luistrucking.html">Logout</a></li>
 </ul>
 
 
-     <div class="container">
+<div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
@@ -132,8 +132,8 @@ li a:hover:not(.active) {
 
 <script>
 	$(document).ready(function () {
-    	$('#logo').addClass('animated fadeInDown');
-    	$("input:text:visible:first").focus();
+	$('#logo').addClass('animated fadeInDown');
+	$("input:text:visible:first").focus();
 	});
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');

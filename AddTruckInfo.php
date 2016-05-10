@@ -22,8 +22,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+die("Connection failed: " . $conn->connect_error);
+}
 
 //Run Query to authenticate User
 $sql = " INSERT INTO Truck (TruckID, TruckType) VALUES ('$TruckID', '$TruckType')";
@@ -32,12 +32,12 @@ $sql = " INSERT INTO Truck (TruckID, TruckType) VALUES ('$TruckID', '$TruckType'
 if(!mysqli_query($conn,$sql))
 {
 
-          header('Location: http://www.luistrucking.com/AddTruckError.php');
+header('Location: http://www.luistrucking.com/AddTruckError.php');
 }
 else
 {
 
-          header('Location: http://www.luistrucking.com/AddTruckOkay.php');
+header('Location: http://www.luistrucking.com/AddTruckOkay.php');
 }
 
 

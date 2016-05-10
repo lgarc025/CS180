@@ -90,12 +90,12 @@ body {margin:0;}
 <div class="header">
 	<div class="header-wrapper">
 	<ul>
-    	<li><a href="home.php">Home</a></li><li>
+	<li><a href="home.php">Home</a></li><li>
 		<a href="#hauler">Haulers</a>
 			<ul>
 				<li><a href="/AddHauler.php">Add Hauler</a></li>
 				<li><a href="/RemoveHauler.php">Remove Hauler</a></li>
-  			</ul></li><li>
+			</ul></li><li>
 
 		<li><a href="#brk">Brokers</a>
 			<ul>
@@ -104,8 +104,8 @@ body {margin:0;}
 				<li><a href="/OwnerPaidTicket.php">Update Paid Tickets</a></li>
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
-   			</ul></li><li>
-    		<a href="#drvr">Driver</a>
+			</ul></li><li>
+		<a href="#drvr">Driver</a>
 			<ul>
 
 				<li><a href="/AddDriver.php">Add Ticket</a></li>
@@ -113,29 +113,30 @@ body {margin:0;}
 				<li><a href="/OwnerApproveTicket.php">Approve Tickets</a></li>
 				<li><a href="/AddDriver.php">Add Driver</a></li>
 				<li><a href="/RemoveDriver.php">Remove Driver</a></li>
-  			</ul></li><li>
-   			<a href="#trk">Trucks</a>
+			</ul></li><li>
+			<a href="#trk">Trucks</a>
 			<ul>
 				<li><a href="/AddTruck.php">Add Truck</a></li>
 				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
-  			</ul></li><li>
+			</ul></li><li>
 			<a class="active" href="#ex">Expenses</a>
 			<ul>
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
+                <li><a href=/OwnerViewExpense.php>View Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
 				<li><a href="/RemoveExpenseType.php">Remove Expense Type</a></li>
-  			</ul></li>
+			</ul></li>
 		<li style = "float:right"><a href="logout.php">Logout</a></li>
- 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
- 	</ul>
- 	</div>
- </div>
+		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
+	</ul>
+	</div>
+</div>
 
 
-     <div class="container">
+<div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
@@ -160,8 +161,8 @@ body {margin:0;}
 
 <script>
 	$(document).ready(function () {
-    	$('#logo').addClass('animated fadeInDown');
-    	$("input:text:visible:first").focus();
+	$('#logo').addClass('animated fadeInDown');
+	$("input:text:visible:first").focus();
 	});
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');

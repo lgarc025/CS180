@@ -16,7 +16,7 @@
 
 	function get_data_2 ($std)
 	{
-			 
+			
 			 //Create a Broker Array
 			 $Brokers=array();
 

@@ -18,8 +18,8 @@ echo $Expense;
 if (strlen($Expense) == 0)
 {
 
-          header('Location: http://www.luistrucking.com/AddExpenseTypeError.php');
- 		return;
+header('Location: http://www.luistrucking.com/AddExpenseTypeError.php');
+		return;
 }
 
 // Create connection
@@ -27,8 +27,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+die("Connection failed: " . $conn->connect_error);
+}
 
 //Run Query to authenticate User
 $sql = "INSERT INTO ExpenseType (ExpenseTypeName) VALUES ('$Expense')";
@@ -36,12 +36,12 @@ $sql = "INSERT INTO ExpenseType (ExpenseTypeName) VALUES ('$Expense')";
 if(!mysqli_query($conn,$sql))
 {
 
-          header('Location: http://www.luistrucking.com/AddExpenseTypeError.php');
+header('Location: http://www.luistrucking.com/AddExpenseTypeError.php');
 }
 else
 {
 
-          header('Location: http://www.luistrucking.com/AddExpenseTypeOkay.php');
+header('Location: http://www.luistrucking.com/AddExpenseTypeOkay.php');
 }
 
 
