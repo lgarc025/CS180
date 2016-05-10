@@ -71,17 +71,16 @@ $PayRate = $rowresult[PayRate];
 $DriverTotal = ($PayRate * $rowsum['SUM(Total)'])/100;
 
 echo "From: $start to $end";
-echo "<table id='t01' class='center'>"; // start a table tag in the HTML
-echo "<tr> <th>Driver</th> <th>Date</th> <th>TruckID</th> <th>Vendor</th> <th>Type</th> <th>Description</th> <th>Total</th>  </tr> ";
+echo "<table id='t01' class='center'/>"; // start a table tag in the HTML
+echo "<tr> <th>Delete</th> <th>Driver</th> <th>Date</th> <th>TruckID</th> <th>Vendor</th> <th>Type</th> <th>Description</th> <th>Total</th>  </tr> ";
 
 while($row = $result->fetch_assoc())
 {
-		echo "<tr><td>" . $row['DriverName'] . "</td><td>" . $row['ExpenseDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['VendorName'] . "</td><td>" . $row['ExpenseType'] . "</td><td>" . $row['Details'] . "</td><td>" ." $". $row['Amount'] . "</td></tr>";
+		echo "<tr><td>" ." <input type='checkbox' name='check_list[]' value='".$row['ExpenseID']."'</td><td>". $row['DriverName'] . "</td><td>" . $row['ExpenseDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['VendorName'] . "</td><td>" . $row['ExpenseType'] . "</td><td>" . $row['Details'] . "</td><td>" ." $". $row['Amount'] . "</td></tr>";
 		//$row['index'] the index here is a field name
 
 }
 
-echo "<tr> <td colspan='9' style='text-align:center' > Expense Total: $".$rowsum['SUM(Amount)']." </td> </tr> ";
 $conn->close();
 echo "</table>"; //Close the table
 

@@ -15,6 +15,15 @@ $Hauler = $_POST["haulername"];
 echo $User;
 echo $Hauler;
 
+
+if (strlen($Hauler) == 0)
+{
+
+		header('Location: http://www.luistrucking.com/AddHaulerError.php');
+
+		return;
+}
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -29,12 +38,12 @@ $sql = "INSERT INTO Hauler (HaulerName) VALUES ('$Hauler')";
 if(!mysqli_query($conn,$sql))
 {
 
-	header('Location: http://www.luistrucking.com/AddHaulerError.php');
+	header('Location:http://www.luistrucking.com/AddHaulerError.php');
 }
 else
 {
 
-	header('Location: http://www.luistrucking.com/AddHaulerOkay.php');
+	header('Location:http://www.luistrucking.com/AddHaulerOkay.php');
 }
 
 

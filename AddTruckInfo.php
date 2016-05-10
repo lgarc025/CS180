@@ -17,6 +17,15 @@ $TruckType = $_POST["trucktype"];
 echo $TruckID;
 echo $TruckType;
 
+
+if (strlen($TruckID) == 0 || strlen($TruckType) == 0 )
+{
+
+		header('Location: http://www.luistrucking.com/AddTruckError.php');
+
+		return;
+}
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 

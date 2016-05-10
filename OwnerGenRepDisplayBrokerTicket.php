@@ -96,7 +96,7 @@ body {margin:0;}
 				<li><a href="/RemoveHauler.php">Remove Hauler</a></li>
 			</ul></li><li>
 
-		<li><a href="#brk">Brokers</a>
+		<li><a class="active" href="#brk">Brokers</a>
 			<ul>
 
 				<li><a href="/OwnerDisplayBrokerTicket.php">View Tickets</a></li>
@@ -104,7 +104,7 @@ body {margin:0;}
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a class="active" href="#drvr">Driver</a>
+		<a href="#drvr">Driver</a>
 			<ul>
 
 				<li><a href="/AddDriver.php">Add Ticket</a></li>
@@ -122,7 +122,8 @@ body {margin:0;}
 			<ul>
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
-                <li><a href=/OwnerViewExpense.php>View Expense</a></li>
+<li><a href=/OwnerViewExpense.php>View Expense</a></li>
+                <li><a href=/RemoveExpense.php>Remove Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>

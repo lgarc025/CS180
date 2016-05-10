@@ -39,6 +39,12 @@ $sql = "INSERT INTO Expense (ExpenseDate, ExpenseType, VendorName, Amount, Drive
 VALUES ('$Date', '$ExpenseType', '$Vendor', '$Amount', '$Driver', '$TruckID', '$Description');";
 
 echo $sql;
+if (strlen($Date) == 0 || strlen($Description) == 0 || strlen($Amount) == 0 || $Amount == 0 )
+{
+
+		header('Location: http://www.luistrucking.com/OwnerAddExpenseError.php');
+		return;
+}
 
 if(!mysqli_query($conn,$sql))
 {
