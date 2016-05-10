@@ -11,7 +11,7 @@ do
 			if [[ "$row" == *"/AddVendor.php"* ]] 
 			then
 				#string to insert where we stop
-				echo "                <li><a href="/OwnerViewExpense.php">View Expense</a></li>" >> temp.php;
+				echo "                <li><a href="/RemoveExpense.php">Remove Expense</a></li>" >> temp.php;
 				echo "DONE MASTER";
 			fi
 			echo "$row" >> temp.php;

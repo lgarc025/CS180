@@ -142,8 +142,8 @@ body {margin:0;}
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>View Expenses </h2>
-			<form action="OwnerGenRepExpense.php" method="post">
+				<h2>Remove Expense Entries </h2>
+			<form action="RemoveExpenseGenRep.php" method="post">
 			</div>
 			<label for="driver">Select Vendor:</label>
 			<br/>

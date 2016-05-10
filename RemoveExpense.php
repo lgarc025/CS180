@@ -121,7 +121,6 @@ body {margin:0;}
 			<ul>
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
-<li><a href=/OwnerViewExpense.php>View Expense</a></li>
                 <li><a href=/OwnerViewExpense.php>View Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
@@ -144,7 +143,7 @@ body {margin:0;}
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
 				<h2>Remove Expense Entries </h2>
-			<form action="OwnerGenRepExpense.php" method="post">
+			<form action="RemoveExpenseGenRep.php" method="post">
 			</div>
 			<label for="driver">Select Vendor:</label>
 			<br/>
