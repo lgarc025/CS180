@@ -8,13 +8,13 @@ do
 	then
 		cat $item | while IFS=' ' read row
 		do
-			if [[ "$row" == *"/OwnerApproveTicket.php"* ]] 
+			echo "$row" >> temp.php;
+			if [[ "$row" == *"/OwnerViewExpense.php"* ]] 
 			then
 				#string to insert where we stop
-				echo "                <li><a href="/OwnerRemoveTicket.php">Remove Ticket</a></li>" >> temp.php;
+				echo "                <li><a href="/OwnerApproveExpense.php">Approve Expenses</a></li>" >> temp.php;
 				echo "DONE MASTER";
 			fi
-			echo "$row" >> temp.php;
 		done
 		#copy the temp file to the orginal file
 

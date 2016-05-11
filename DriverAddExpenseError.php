@@ -99,6 +99,7 @@ body {margin:0;}
 		<a class="active" href="#exp">Expenses</a>
 			<ul>
 				<li><a href="/DriverAddExpense.php">Add Expense</a></li>
+                <li><a href=/DriverRemoveExpense.php>Remove Expense</a></li>
 			</ul></li><li>
 			<a href="#rep">Reports</a>
 			<ul>

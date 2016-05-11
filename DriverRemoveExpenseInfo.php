@@ -57,8 +57,8 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
 //Run Query to authenticate User
-$sql = "SELECT * FROM Expense Where ExpenseDate Between '$start' and '$end' $cvendor $cexpense $ctruckid $cexpensetype $cuser ORDER BY ExpenseDate DESC";
-echo $sql;
+$sql = "SELECT * FROM Expense Where ExpenseDate Between '$start' and '$end' $cvendor $cexpense $ctruckid $cexpensetype $cuser and Approve=0 ORDER BY ExpenseDate DESC";
+//echo $sql;
 $result = $conn->query($sql);
 
 

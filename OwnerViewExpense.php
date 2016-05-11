@@ -103,10 +103,10 @@ body {margin:0;}
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a class="active" href="#drvr">Driver</a>
+		<a href="#drvr">Driver</a>
 			<ul>
 
-               	<li><a href=/AddTicketOwner.php>Add Ticket</a></li>
+	<li><a href=/AddTicketOwner.php>Add Ticket</a></li>
 				<li><a href="/OwnerDisplayDriverTicket.php">View Tickets</a></li>
 <li><a href=/OwnerRemoveTicket.php>Remove Ticket</a></li>
 				<li><a href="/OwnerApproveTicket.php">Approve Tickets</a></li>
@@ -118,7 +118,7 @@ body {margin:0;}
 				<li><a href="/AddTruck.php">Add Truck</a></li>
 				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
 			</ul></li><li>
-			<a href="#ex">Expenses</a>
+			<a class="active" href="#ex">Expenses</a>
 			<ul>
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>

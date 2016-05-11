@@ -17,7 +17,7 @@ if(!empty($_POST['check_list']))
 		foreach($_POST['check_list'] as $check)
 		{
 	 		echo $check;
-			$sql = "UPDATE Ticket SET Approval='1' Where TicketID='$check'";
+			$sql = "UPDATE Expense SET Approve='1' Where ExpenseID='$check'";
 			$result = $conn->query($sql);
 		}
 }
@@ -28,6 +28,6 @@ if(!empty($_POST['check_list']))
 
 $conn->close();
 
-header('Location: http://www.luistrucking.com/OwnerApproveTicket.php');
+header('Location: http://www.luistrucking.com/OwnerApproveExpense.php');
 
 ?>

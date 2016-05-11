@@ -42,8 +42,8 @@ die("Connection failed: " . $conn->connect_error);
 }
 
 //Run Query to authenticate User
-$sql = "INSERT INTO Expense (ExpenseDate, ExpenseType, VendorName, Amount, DriverName, TruckID, Details)
-VALUES ('$Date', '$ExpenseType', '$Vendor', '$Amount', '$Driver', '$TruckID', '$Description');";
+$sql = "INSERT INTO Expense (ExpenseDate, ExpenseType, VendorName, Amount, DriverName, TruckID, Details, Approve)
+VALUES ('$Date', '$ExpenseType', '$Vendor', '$Amount', '$Driver', '$TruckID', '$Description', 0);";
 
 echo $sql;
 

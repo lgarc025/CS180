@@ -98,6 +98,7 @@ body {margin:0;}
 			<ul>
 
 				<li><a href="/DriverAddExpense.php">Add Expense</a></li>
+                <li><a href=/DriverRemoveExpense.php>Remove Expense</a></li>
 			</ul></li><li>
 			<a href="#rep">Reports</a>
 			<ul>
