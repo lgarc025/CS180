@@ -54,15 +54,15 @@ while($row = $result->fetch_assoc())
 				$Paid="Not Paid";
 
 		}
-		echo "<tr><td>" . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['DriverName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . $row['Amount'] . "</td><td>" ." $". $row['Total'] . "</td><td>". "$Approval" .  "</td><td>". "$Paid" . "</td></tr>";
+		echo "<tr><td>" . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['DriverName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . $row['Amount'] . "</td><td>" ." $". round($row['Total'],2) . "</td><td>". "$Approval" .  "</td><td>". "$Paid" . "</td></tr>";
 		//$row['index'] the index here is a field name
 
 }
 
 
-echo "<tr> <td colspan='10' style='text-align:center' > Broker Total: $".$rowsum1['SUM(Total)']." </td> </tr> ";
-echo "<tr> <td colspan='10' style='text-align:center' >  Total: $".$DriverTotal." @  Broker Fee of  ".$PayRate."% </td> </tr> ";
-echo "<tr> <td colspan='10' style='text-align:center' >  Total Amount  Due: $".$DueTotal." @  Broker Fee of  ".$PayRate."% </td> </tr> ";
+echo "<tr> <td colspan='10' style='text-align:center' > Broker Total: $".round($rowsum1['SUM(Total)'], 2)." </td> </tr> ";
+echo "<tr> <td colspan='10' style='text-align:center' >  Total: $".round($DriverTotal, 2)." @  Broker Fee of  ".$PayRate."% </td> </tr> ";
+echo "<tr> <td colspan='10' style='text-align:center' >  Total Amount  Due: $".round($DueTotal,2)." @  Broker Fee of  ".$PayRate."% </td> </tr> ";
 $conn->close();
 echo "</table>"; //Close the table
 

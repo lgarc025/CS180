@@ -29,7 +29,7 @@ if(!empty($_POST['check_list']))
 $conn->close();
 
 
-                <li><a href=/OwnerRemoveTicket.php>Remove Ticket</a></li>
+<li><a href=/OwnerRemoveTicket.php>Remove Ticket</a></li>
 header('Location: http://www.luistrucking.com/OwnerApproveTicket.php');
 
 ?>

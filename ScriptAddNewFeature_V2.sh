@@ -20,7 +20,8 @@ do
 		#copy the temp file to the orginal file
 
 		echo $item; 
-		#cat temp.php  > "$item"
+		cat temp.php  > "$item"
+		#cat temp.php
 		#remove the temp file
 		rm temp.php
 	fi

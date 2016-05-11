@@ -34,19 +34,20 @@ echo "<tr> <th>TicketID</th> <th>Date</th> <th>TruckID</th> <th>Hauler</th> <th>
 
 while($row = $result->fetch_assoc())
 {
+
 		$Approval = "Approved";
 		if ($row['Approval'] == 0 )
 		{
 				$Approval="Not Approved";
 
 		}
-		echo "<tr><td>" . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['BrokerName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . $row['Amount'] . "</td><td>" ." $". $row['Total'] . "</td><td>". "$Approval" ."</td></tr>";
+		echo "<tr><td>" . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['BrokerName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . round($row['Amount'],2) . "</td><td>" ." $". round($row['Total'],2) . "</td><td>". "$Approval" ."</td></tr>";
 		//$row['index'] the index here is a field name
 
 }
 
-echo "<tr> <td colspan='9' style='text-align:center' > Truck Total: $".$rowsum['SUM(Total)']." </td> </tr> ";
-echo "<tr> <td colspan='9' style='text-align:center' > DriverTotal: $".$DriverTotal." @ ".$PayRate."% </td> </tr> ";
+echo "<tr> <td colspan='9' style='text-align:center' > Truck Total: $".round($rowsum['SUM(Total)'], 2)." </td> </tr> ";
+echo "<tr> <td colspan='9' style='text-align:center' > DriverTotal: $".round($DriverTotal, 2)." @ ".$PayRate."% </td> </tr> ";
 $conn->close();
 echo "</table>"; //Close the table
 
