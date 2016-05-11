@@ -10,14 +10,12 @@
 
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Custom Stylesheet -->
-	<link rel="stylesheet" href="css/dropStyle.css">
+	<link rel="stylesheet" href="css/styleDisplayDriverData.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <style>
-
 body {margin:0;}
-
 .header{
 	background-color:#333;
 	overflow-y:hidden;
@@ -91,7 +89,7 @@ body {margin:0;}
 	<div class="header-wrapper">
 	<ul>
 	<li><a href="home.php">Home</a></li><li>
-		<a class="active" href="#hauler">Haulers</a>
+		<a href="#hauler">Haulers</a>
 			<ul>
 				<li><a href="/AddHauler.php">Add Hauler</a></li>
 				<li><a href="/RemoveHauler.php">Remove Hauler</a></li>
@@ -105,11 +103,12 @@ body {margin:0;}
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a href="#drvr">Driver</a>
+		<a class="active" href="#drvr">Driver</a>
 			<ul>
 
 				<li><a href="/AddDriver.php">Add Ticket</a></li>
 				<li><a href="/OwnerDisplayDriverTicket.php">View Tickets</a></li>
+                <li><a href=/OwnerRemoveTicket.php>Remove Ticket</a></li>
 				<li><a href="/OwnerApproveTicket.php">Approve Tickets</a></li>
 				<li><a href="/AddDriver.php">Add Driver</a></li>
 				<li><a href="/RemoveDriver.php">Remove Driver</a></li>
@@ -124,7 +123,7 @@ body {margin:0;}
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
 <li><a href=/OwnerViewExpense.php>View Expense</a></li>
-                <li><a href=/RemoveExpense.php>Remove Expense</a></li>
+<li><a href=/RemoveExpense.php>Remove Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
@@ -139,26 +138,68 @@ body {margin:0;}
 
 
 
-
 <div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Remove Hauler </h2>
-			<form action="RemoveHaulerInfo.php" method="post">
+				<h2>Remove Ticket Entries </h2>
+			<form action="OwnerRemoveTicketGenRep.php" method="post">
 			</div>
-			<label for="hauler">Hauler:</label>
+			Ticket Removed!
+			<br/>
+			<label for="driver">Select Hauler:</label>
 			<br/>
 			<select name='hauler' id='hauler'>
+			<option value='*'>All</option>
 			<?php
 				require('./GetHaulers.php');
 			?>
 			</select>
 			<br/>
+			<label for="driver">Select Broker:</label>
 			<br/>
-			<button type="submit">Remove Hauler</button>
+			<select name='broker' id='broker'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetBrokers.php');
+			?>
+			</select>
+			<br/>
+
+			<label for="driver">Select Driver:</label>
+			<br/>
+			<select name='driver' id='driver'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetDriver.php');
+			?>
+			</select>
+			<br/>
+
+			<label for="driver">Select TruckID:</label>
+			<br/>
+			<select name='truckid' id='truckid'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetTruckID.php');
+			?>
+			</select>
+			<br/>
+<br/>
+			<label for="time">Start Date:</label>
+			<br/>
+			<input type="date" name="startdate" id="date">
+			<br/>
+			<label for="time">End Date:</label>
+			<br/>
+			<input type="date" name="enddate" id="enddate">
+			<br/>
+			<button type="submit">Generate Report</button>
+			<br/>
+			<br/>
+			<?//php include('DisplayDriverTicketInfo.php'); ?>
 			<br/>
 			</form>
 		</div>
@@ -174,3 +215,5 @@ body {margin:0;}
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');
 	});
+<script/>
+

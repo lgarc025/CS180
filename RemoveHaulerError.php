@@ -119,7 +119,7 @@ body {margin:0;}
 				<li><a href="/AddTruck.php">Add Truck</a></li>
 				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
 			</ul></li><li>
-			<a class="active" href="#ex">Expenses</a>
+			<a  href="#ex">Expenses</a>
 			<ul>
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
