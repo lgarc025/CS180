@@ -8,10 +8,10 @@ do
 	then
 		cat $item | while IFS=' ' read row
 		do
-			if [[ "$row" == *"/AddVendor.php"* ]] 
+			if [[ "$row" == *"/OwnerApproveTicket.php"* ]] 
 			then
 				#string to insert where we stop
-				echo "                <li><a href="/RemoveExpense.php">Remove Expense</a></li>" >> temp.php;
+				echo "                <li><a href="/OwnerRemoveTicket.php">Remove Ticket</a></li>" >> temp.php;
 				echo "DONE MASTER";
 			fi
 			echo "$row" >> temp.php;

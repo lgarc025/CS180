@@ -13,11 +13,10 @@
 	<link rel="stylesheet" href="css/dropStyle.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <style>
 
 body {margin:0;}
-
-
 .header{
 	background-color:#333;
 	overflow-y:hidden;
@@ -91,9 +90,9 @@ body {margin:0;}
 	<div class="header-wrapper">
 	<ul>
 	<li><a href="home.php">Home</a></li><li>
-		<a class="active" href="#hauler">Haulers</a>
+		<a href="#hauler">Haulers</a>
 			<ul>
-				<li><a  href="/AddHauler.php">Add Hauler</a></li>
+				<li><a href="/AddHauler.php">Add Hauler</a></li>
 				<li><a href="/RemoveHauler.php">Remove Hauler</a></li>
 			</ul></li><li>
 
@@ -105,7 +104,7 @@ body {margin:0;}
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a href="#drvr">Driver</a>
+		<a class="active" href="#drvr">Driver</a>
 			<ul>
 
 				<li><a href="/AddTicketOwner.php">Add Ticket</a></li>
@@ -137,39 +136,71 @@ body {margin:0;}
 </div>
 
 
-
-
-
 <div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Add New Broker</h2>
-			<form action="AddBrokerInfo.php" method="post">
+				<h2>New Ticket Entry </h2>
+			<form action="AddTicketOwnerInfo.php" method="post">
 			</div>
+			Ticket Added!
+			<br/>
+			<label for="Driver">Driver:</label>
+			<br/>
+			<select name='driver' id='driver'>
+			<?php
+				require('./GetDriver.php');
+			?>
+			</select>
+			<br/>
+			<label for="TruckID">Truck ID:</label>
+			<br/>
+			<select name='taskOption' id='taskOption'>
+			<?php
+				require('./GetTruckID.php');
+			?>
+			</select>
+			<br/>
+			<label for="Hauler">Hauler:</label>
+			<br/>
+			<select name='hauler' id='hauler'>
+			<?php
+				require('./GetHaulers.php');
+			?>
+			</select>
+			<br/>
+			<label for="Broker">Broker:</label>
+			<br/>
 
-			<?php echo 'Broker Added!'; ?>
+			<select name='broker' id='broker'>
+			<?php
+				require('./GetBrokers.php');
+			?>
+			</select>
 			<br/>
+			<label for="time">Date:</label>
 			<br/>
-			<label for="haulername">Enter Broker  Name:</label>
+			<input type="date" name="date" id="date">
 			<br/>
-			<input type="text" name="brokername" id="brokername">
+			<label for="user">Ticket ID:</label>
 			<br/>
-<label for="haulername">Enter Broker Fee Rate:</label>
+			<input type="text" name="user" id="user">
 			<br/>
-			<input type="number" name="rate" id="rate">
+			<label for="payrate">Pay Rate:</label>
 			<br/>
-
-			<button type="submit">Add Broker</button>
-
+			<input type="float" name="payrate" id="payrate">
+			<br/>
+			<label for="tons">Tons/Hours:</label>
+			<br/>
+			<input type="float" name="tons" id="tons">
+			<br/>
+			<button type="submit">Submit</button>
 			<br/>
 			</form>
-
 		</div>
 	</div>
-
 
 </body>
 
@@ -181,5 +212,3 @@ body {margin:0;}
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');
 	});
-</script>
-</html>
