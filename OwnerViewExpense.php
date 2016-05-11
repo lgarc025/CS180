@@ -108,6 +108,7 @@ body {margin:0;}
 
 				<li><a href="/AddDriver.php">Add Ticket</a></li>
 				<li><a href="/OwnerDisplayDriverTicket.php">View Tickets</a></li>
+                <li><a href=/OwnerRemoveTicket.php>Remove Ticket</a></li>
 				<li><a href="/OwnerApproveTicket.php">Approve Tickets</a></li>
 				<li><a href="/AddDriver.php">Add Driver</a></li>
 				<li><a href="/RemoveDriver.php">Remove Driver</a></li>
@@ -122,7 +123,7 @@ body {margin:0;}
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
 			    <li><a href=/OwnerViewExpense.php>View Expense</a></li>
-                <li><a href=/RemoveExpense.php>Remove Expense</a></li>
+<li><a href=/RemoveExpense.php>Remove Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
