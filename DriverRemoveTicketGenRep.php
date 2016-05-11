@@ -113,7 +113,6 @@ body {margin:0;}
 	</div>
 </div>
 
-
 <div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
@@ -163,8 +162,12 @@ body {margin:0;}
 			<button type="submit">Generate Report</button>
 			<br/>
 			<br/>
-			<?//php include('DisplayDriverTicketInfo.php'); ?>
+			</form>
+			<form action="DriverRemoveTicketSubmit.php" method="post">
 			<br/>
+			<?php include('DriverRemoveTicketInfo.php'); ?>
+			<br/>
+			<button type="submit">Submit Delete List</button>
 			</form>
 		</div>
 	</div>

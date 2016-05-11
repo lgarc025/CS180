@@ -88,13 +88,13 @@ body {margin:0;}
 	<div class="header-wrapper">
 	<ul>
 	<li><a href="home.php">Home</a></li><li>
-		<li><a class="active" href="#tic">Tickets</a>
+		<li><a href="#tic">Tickets</a>
 			<ul>
 
 				<li><a href="/DriverAddTicket.php">Add Tickets</a></li>
 				<li><a href="/DriverRemoveTicket.php">Remove Tickets</a></li>
 			</ul></li><li>
-		<a href="#exp">Expenses</a>
+		<a class="active" href="#exp">Expenses</a>
 			<ul>
 
 				<li><a href="/DriverAddExpense.php">Add Expense</a></li>
@@ -114,30 +114,34 @@ body {margin:0;}
 </div>
 
 
+
+
 <div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Remove Ticket Entries </h2>
-			<form action="DriverRemoveTicketGenRep.php" method="post">
+				<h2>Remove Expense Entries </h2>
+			<form action="DriverRemoveExpenseGenRep.php" method="post">
 			</div>
-			<label for="driver">Select Hauler:</label>
+			Error Removing Expense, Try Again!
 			<br/>
-			<select name='hauler' id='hauler'>
+			<label for="driver">Select Vendor:</label>
+			<br/>
+			<select name='vendor' id='vendor'>
 			<option value='*'>All</option>
 			<?php
-				require('./GetHaulers.php');
+				require('./GetVendor.php');
 			?>
 			</select>
 			<br/>
-			<label for="driver">Select Broker:</label>
+			<label for="driver">Select Expense Type:</label>
 			<br/>
-			<select name='broker' id='broker'>
+			<select name='type' id='type'>
 			<option value='*'>All</option>
 			<?php
-				require('./GetBrokers.php');
+				require('./GetExpenseType.php');
 			?>
 			</select>
 			<br/>
@@ -162,9 +166,6 @@ body {margin:0;}
 			<br/>
 			<button type="submit">Generate Report</button>
 			<br/>
-			<br/>
-			<?//php include('DisplayDriverTicketInfo.php'); ?>
-			<br/>
 			</form>
 		</div>
 	</div>
@@ -179,5 +180,3 @@ body {margin:0;}
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');
 	});
-<script/>
-

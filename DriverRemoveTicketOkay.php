@@ -123,6 +123,8 @@ body {margin:0;}
 				<h2>Remove Ticket Entries </h2>
 			<form action="DriverRemoveTicketGenRep.php" method="post">
 			</div>
+			Ticket Removed!
+			<br/>
 			<label for="driver">Select Hauler:</label>
 			<br/>
 			<select name='hauler' id='hauler'>
