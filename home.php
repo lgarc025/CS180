@@ -281,6 +281,8 @@ body {margin:0;}
       <tr>
         <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
         <td><div id="Anthony_chart_div" style="border: 1px solid #ccc;"></div></td>
+	  </tr>
+	  <tr>
 		<td><div id="Driver_chart" style="border: 1px solid #ccc"></div></td>
 		<td><div id="Truck_chart" style="border: 1px solid #ccc"></div></td>
       </tr>
