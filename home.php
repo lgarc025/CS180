@@ -10,14 +10,102 @@
 
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Custom Stylesheet -->
-	<link rel="stylesheet" href="css/dropStyle.css">
+	<link rel="stylesheet" href="css/styleDisplayDriverData.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Draw the pie chart for Sarah's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawSarahChart);
+
+      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawAnthonyChart);
+
+      // Callback that draws the pie chart for Sarah's pizza.
+      function drawSarahChart() {
+
+        // Create the data table for Sarah's pizza.
+        //var data = new google.visualization.DataTable();
+		var jsonData = $.ajax({
+				url: "getData.php",
+				dataType: "json",
+				async: false
+				}).responseText;
+
+		var data = new google.visualization.DataTable(jsonData);
+
+        //data.addColumn('string', 'Topping');
+        //data.addColumn('number', 'Slices');
+        //data.addRows([
+        //  ['Mushrooms', 1],
+        //  ['Onions', 1],
+        //  ['Olives', 2],
+        //  ['Zucchini', 2],
+        //  ['Pepperoni', 1]
+        //]);
+
+        // Set options for Sarah's pie chart.
+        var options = {title:'Expenses',
+                       width:400,
+                       height:300,
+					   is3D: true,
+					   slices: {3: {offset: 0.3}},
+					  };
+
+        // Instantiate and draw the chart for Sarah's pizza.
+        var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
+        chart.draw(data, options);
+      }
+
+      // Callback that draws the pie chart for Anthony's pizza.
+      function drawAnthonyChart() {
+        
+		var jsonData = $.ajax({
+			url: "getDataBrokers.php",
+			dataType: "json",
+			async: false
+			}).responseText;
+
+		var data = new google.visualization.DataTable(jsonData);
+
+		//var temp = " <?php require ('./GetChartData.php'); ?>";
+        // Create the data table for Anthony's pizza.
+        //var data = new google.visualization.DataTable();
+		//var point_one = 'Mushrooms';
+		//var one_val = 2;
+		var slice_val = 2; // does not seem to work in the slices
+		var slice_offset = 0.2;
+        //data.addColumn('string', 'Topping');
+        //data.addColumn('number', 'Slices');
+        //data.addRows([
+        //  [point_one, one_val],
+
+       // ]);
+
+        // Set options for Anthony's pie chart.
+        var options = {title:'Brokers',
+                       width:400,
+                       height:300,
+					   is3D: true,
+					   slices: {2 :{offset: slice_offset}},
+					  };
+
+        // Instantiate and draw the chart for Anthony's pizza.
+        var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
 
 <style>
 
 body {margin:0;}
-
 .header{
 	background-color:#333;
 	overflow-y:hidden;
@@ -124,8 +212,9 @@ body {margin:0;}
 			<ul>
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
-<li><a href=/OwnerViewExpense.php>View Expense</a></li>
-<li><a href=/RemoveExpense.php>Remove Expense</a></li>
+				<li><a href=/OwnerViewExpense.php>View Expense</a></li>
+               	<li><a href=/OwnerApproveExpense.php>Approve Expense</a></li>
+				 <li><a href=/RemoveExpense.php>Remove Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
@@ -138,66 +227,26 @@ body {margin:0;}
 </div>
 
 
-
-
-
-
-
 <div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"><br/> </h1>
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>New Ticket Entry </h2>
-			<form action="GetTicketInfo.php" method="post">
+				<h2>Company at a Glance  </h2>
 			</div>
-			<label for="TruckID">Truck ID:</label>
-			<br/>
-			<select name='taskOption' id='taskOption'>
-			<?php
-				require('./GetTruckID.php');
-			?>
-			</select>
-			<br/>
-			<label for="Hauler">Hauler:</label>
-			<br/>
-			<select name='hauler' id='hauler'>
-			<?php
-				require('./GetHaulers.php');
-			?>
-			</select>
-			<br/>
-			<label for="Broker">Broker:</label>
-			<br/>
 
-			<select name='broker' id='broker'>
-			<?php
-				require('./GetBrokers.php');
-			?>
-			</select>
-			<br/>
-			<label for="time">Date:</label>
-			<br/>
-			<input type="date" name="date" id="date">
-			<br/>
-			<label for="user">Ticket ID:</label>
-			<br/>
-			<input type="text" name="user" id="user">
-			<br/>
-			<label for="payrate">Pay Rate:</label>
-			<br/>
-			<input type="float" name="payrate" id="payrate">
-			<br/>
-			<label for="tons">Tons/Hours:</label>
-			<br/>
-			<input type="float" name="tons" id="tons">
-			<br/>
-			<button type="submit">Submit</button>
-			<br/>
-			</form>
-		</div>
+    <!--Table and divs that hold the pie charts-->
+    <table class="columns" align="center">
+      <tr>
+        <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+		<br>
+        <td><div id="Anthony_chart_div" style="border: 1px solid #ccc;"></div></td>
+      </tr>
+    </table>
+
 	</div>
+</div>
 
 </body>
 

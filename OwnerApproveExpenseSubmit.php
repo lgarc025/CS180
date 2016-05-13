@@ -22,10 +22,6 @@ if(!empty($_POST['check_list']))
 		}
 }
 
-
-
-
-
 $conn->close();
 
 header('Location: http://www.luistrucking.com/OwnerApproveExpense.php');

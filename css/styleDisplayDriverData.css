@@ -327,3 +327,8 @@ input[type=checkbox]{
 			width:19px;
 		    height:19px;
 }
+
+div.chart_div table {
+		    width: auto;
+			    margin: 0 auto !important;
+}

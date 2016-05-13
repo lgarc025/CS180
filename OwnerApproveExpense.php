@@ -124,6 +124,7 @@ body {margin:0;}
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
 				<li><a href=/OwnerViewExpense.php>View Expense</a></li>
+               	<li><a href=/OwnerApproveExpense.php>Approve Expense</a></li>
 				<li><a href=/RemoveExpense.php>Remove Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
@@ -146,8 +147,8 @@ body {margin:0;}
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
 				<h2>Expenses To Approve </h2>
-			<form action="OwnerApproveExpense.php" method="post">
 			</div>
+			<form action="OwnerApproveExpense.php" method="post">
 			<label for="driver">Select Driver:</label>
 			<br/>
 			<select name='driver' id='driver'>

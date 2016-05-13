@@ -92,13 +92,13 @@ body {margin:0;}
 	<div class="header-wrapper">
 	<ul>
 	<li><a href="home.php">Home</a></li><li>
-		<a class="active" href="#hauler">Haulers</a>
+		<a  href="#hauler">Haulers</a>
 			<ul>
 				<li><a  href="/AddHauler.php">Add Hauler</a></li>
 				<li><a href="/RemoveHauler.php">Remove Hauler</a></li>
 			</ul></li><li>
 
-		<li><a href="#brk">Brokers</a>
+		<li><a class="active" href="#brk">Brokers</a>
 			<ul>
 
 				<li><a href="/OwnerDisplayBrokerTicket.php">View Tickets</a></li>
@@ -126,6 +126,7 @@ body {margin:0;}
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
 <li><a href=/OwnerViewExpense.php>View Expense</a></li>
+               	<li><a href=/OwnerApproveExpense.php>Approve Expense</a></li>
 <li><a href=/RemoveExpense.php>Remove Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
