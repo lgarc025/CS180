@@ -10,7 +10,7 @@
 			$names = get_data_driver();
 			$count = 0;
 
-			echo '{ "cols": [ {"id":"","label":"Broker","pattern":"","type":"string"}, {"id":"","label":"Cost","pattern":"","type":"number"} ],';
+			echo '{ "cols": [ {"id":"","label":"Broker","pattern":"","type":"string"}, {"id":"","label":"Revenue","pattern":"","type":"number"} ],';
 			echo json_encode (rows);
 			echo ": [";
 			foreach ($names as $name)
