@@ -26,6 +26,9 @@
       // Draw the pie chart for the Anthony's pizza when Charts is loaded.
       google.charts.setOnLoadCallback(drawAnthonyChart);
 
+	  google.charts.setOnLoadCallback(drawDriverChart);
+	  google.charts.setOnLoadCallback(drawTruckChart);
+	
       // Callback that draws the pie chart for Sarah's pizza.
       function drawSarahChart() {
 
@@ -99,6 +102,43 @@
         var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
         chart.draw(data, options);
       }
+
+	  function drawDriverChart() {
+		var jsonData = $.ajax({
+				url:"getDataDrivers.php",
+				dataType:"json",
+				async:false
+			}).responseText;
+
+		var data = new google.visualization.DataTable(jsonData);
+
+		var options = {title:'Drivers',
+					   width:400,
+					   height:300,
+					  }
+
+		var chart = new google.visualization.ColumnChart(document.getElementById('Driver_chart'));
+		chart.draw(data, options);
+	  }
+
+	  function drawTruckChart() {
+		var jsonData = $.ajax({
+				url:"getDataTrucks.php",
+				dataType:"json",
+				async:false
+			}).responseText;
+		
+		var data = new google.visualization.DataTable(jsonData);
+
+		var options = {title:'Trucks',
+					   width:400,
+					   height:300,
+					  }
+
+		var chart = new google.visualization.ColumnChart(document.getElementById('Truck_chart'));
+		chart.draw(data, options);
+	  }
+	
     </script>
 
 
@@ -240,8 +280,9 @@ body {margin:0;}
     <table class="columns" align="center">
       <tr>
         <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
-		<br>
         <td><div id="Anthony_chart_div" style="border: 1px solid #ccc;"></div></td>
+		<td><div id="Driver_chart" style="border: 1px solid #ccc"></div></td>
+		<td><div id="Truck_chart" style="border: 1px solid #ccc"></div></td>
       </tr>
     </table>
 
