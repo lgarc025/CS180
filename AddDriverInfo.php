@@ -37,7 +37,7 @@ die("Connection failed: " . $conn->connect_error);
 }
 
 //Run Query to authenticate User
-$sql = "INSERT INTO Driver ( DriverName, login, password, PayRate) VALUES ('$Name', '$Login', '$Password', '$PayRate')";
+$sql = "INSERT INTO Driver ( DriverName, login, password, PayRate, IsAdmin) VALUES ('$Name', '$Login', '$Password', '$PayRate', '0')";
 
 
 if(!mysqli_query($conn,$sql))

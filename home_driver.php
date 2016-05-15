@@ -218,47 +218,24 @@ body {margin:0;}
 <div class="header">
 	<div class="header-wrapper">
 	<ul>
-	<li><a class="active" href="home.php">Home</a></li><li>
-		<a href="#hauler">Haulers</a>
+	<li><a class="active" href="home_driver.php">Home</a></li><li>
+		<li><a href="#tic">Tickets</a>
 			<ul>
-				<li><a href="/AddHauler.php">Add Hauler</a></li>
-				<li><a href="/RemoveHauler.php">Remove Hauler</a></li>
+			<li><a href="/DriverAddTicket.php">Add Tickets</a></li>
+				<li><a href="/DriverRemoveTicket.php">Remove Tickets</a></li>
 			</ul></li><li>
-
-		<li><a href="#brk">Brokers</a>
+		<a  href="#exp">Expenses</a>
 			<ul>
-
-				<li><a href="/OwnerDisplayBrokerTicket.php">View Tickets</a></li>
-				<li><a href="/OwnerPaidTicket.php">Update Paid Tickets</a></li>
-				<li><a href="/AddBroker.php">Add Broker</a></li>
-				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
+				<li><a href="/DriverAddExpense.php">Add Expense</a></li>
+   			 <li><a href=/DriverRemoveExpense.php>Remove Expense</a></li>
 			</ul></li><li>
-		<a href="#drvr">Driver</a>
+			<a href="#rep">Reports</a>
 			<ul>
-
-	<li><a href=/AddTicketOwner.php>Add Ticket</a></li>
-				<li><a href="/OwnerDisplayDriverTicket.php">View Tickets</a></li>
-<li><a href=/OwnerRemoveTicket.php>Remove Ticket</a></li>
-				<li><a href="/OwnerApproveTicket.php">Approve Tickets</a></li>
-				<li><a href="/AddDriver.php">Add Driver</a></li>
-				<li><a href="/RemoveDriver.php">Remove Driver</a></li>
+				<li><a href="/DisplayDriverTicket.php">Pay Report</a></li>
 			</ul></li><li>
-			<a href="#trk">Trucks</a>
+			<a href="#acc">Account</a>
 			<ul>
-				<li><a href="/AddTruck.php">Add Truck</a></li>
-				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
-			</ul></li><li>
-			<a href="#ex">Expenses</a>
-			<ul>
-
-				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
-				<li><a href=/OwnerViewExpense.php>View Expense</a></li>
-               	<li><a href=/OwnerApproveExpense.php>Approve Expense</a></li>
-				 <li><a href=/RemoveExpense.php>Remove Expense</a></li>
-				<li><a href="/AddVendor.php">Add Vendor</a></li>
-				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
-				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
-				<li><a href="/RemoveExpenseType.php">Remove Expense Type</a></li>
+				<li><a href="/ChangeDriverPassword.php">Change Password</a></li>
 			</ul></li>
 		<li style = "float:right"><a href="logout.php">Logout</a></li>
 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
@@ -273,19 +250,14 @@ body {margin:0;}
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Company at a Glance  </h2>
+				<h2> Earnings at a Glance </h2>
 			</div>
 
     <!--Table and divs that hold the pie charts-->
     <table class="columns" align="center">
       <tr>
         <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
-        <td><div id="Anthony_chart_div" style="border: 1px solid #ccc;"></div></td>
 	  </tr>
-	  <tr>
-		<td><div id="Driver_chart" style="border: 1px solid #ccc"></div></td>
-		<td><div id="Truck_chart" style="border: 1px solid #ccc"></div></td>
-      </tr>
     </table>
 
 	</div>
