@@ -8,21 +8,13 @@ do
 	then
 		cat $item | while IFS=' ' read row
 		do
-			if [[ "$row" == *"OwnerApproveExpense.php"* ]] 
+			if [[ "$row" == *"<!DOCTYPE html>"* ]] 
 			then
-				#string to insert where we stop
-				echo "               	<li><a href="/OwnerApproveExpense.php">Approve Expense</a></li>" >> temp.php;
-				echo "DONE MASTER";
-			else
-				echo "$row" >> temp.php;
+			cat Security.php > temp.php
+			cat $item >> temp.php
+			cat temp.php > "$item"
+			exit
 			fi
 		done
-		#copy the temp file to the orginal file
-
-		echo $item; 
-		cat temp.php  > "$item"
-		#cat temp.php
-		#remove the temp file
-		rm temp.php
 	fi
 done

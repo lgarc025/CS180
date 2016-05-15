@@ -1,3 +1,30 @@
+<?php
+	 if(!isset($_COOKIE["uname"]))
+	 {
+			 header('Location: http://www.luistrucking.com/');
+
+			 return;
+	
+	 }
+	
+	 if($_COOKIE["admin"] == '0')
+	 {
+			 header('Location: http://www.luistrucking.com/home_sec.html');
+
+			 return;
+	 }
+
+	$cookie_name = "login";
+	$cookie_value = $_COOKIE["login"];
+   	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");
+	$cookie_name = "uname";
+	$cookie_value = $_COOKIE["uname"];
+   	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");
+	$cookie_name = "admin";
+	$cookie_value = $_COOKIE["admin"];
+   	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,25 +42,25 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript">
 
-      // Load Charts and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
+// Load Charts and the corechart package.
+google.charts.load('current', {'packages':['corechart']});
 
-      // Draw the pie chart for Sarah's pizza when Charts is loaded.
-      google.charts.setOnLoadCallback(drawSarahChart);
+// Draw the pie chart for Sarah's pizza when Charts is loaded.
+google.charts.setOnLoadCallback(drawSarahChart);
 
-      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
-      google.charts.setOnLoadCallback(drawAnthonyChart);
+// Draw the pie chart for the Anthony's pizza when Charts is loaded.
+google.charts.setOnLoadCallback(drawAnthonyChart);
 
 	  google.charts.setOnLoadCallback(drawDriverChart);
 	  google.charts.setOnLoadCallback(drawTruckChart);
 	
-      // Callback that draws the pie chart for Sarah's pizza.
-      function drawSarahChart() {
+// Callback that draws the pie chart for Sarah's pizza.
+function drawSarahChart() {
 
-        // Create the data table for Sarah's pizza.
-        //var data = new google.visualization.DataTable();
+// Create the data table for Sarah's pizza.
+//var data = new google.visualization.DataTable();
 		var jsonData = $.ajax({
 				url: "getData.php",
 				dataType: "json",
@@ -42,32 +69,32 @@
 
 		var data = new google.visualization.DataTable(jsonData);
 
-        //data.addColumn('string', 'Topping');
-        //data.addColumn('number', 'Slices');
-        //data.addRows([
-        //  ['Mushrooms', 1],
-        //  ['Onions', 1],
-        //  ['Olives', 2],
-        //  ['Zucchini', 2],
-        //  ['Pepperoni', 1]
-        //]);
+//data.addColumn('string', 'Topping');
+//data.addColumn('number', 'Slices');
+//data.addRows([
+//  ['Mushrooms', 1],
+//  ['Onions', 1],
+//  ['Olives', 2],
+//  ['Zucchini', 2],
+//  ['Pepperoni', 1]
+//]);
 
-        // Set options for Sarah's pie chart.
-        var options = {title:'Year To Date: Expenses',
-                       width:500,
-                       height:300,
+// Set options for Sarah's pie chart.
+var options = {title:'Year To Date: Expenses',
+width:500,
+height:300,
 					   is3D: true,
 					   //slices: {3: {offset: 0.3}},
 					  };
 
-        // Instantiate and draw the chart for Sarah's pizza.
-        var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
-        chart.draw(data, options);
-      }
+// Instantiate and draw the chart for Sarah's pizza.
+var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
+chart.draw(data, options);
+}
 
-      // Callback that draws the pie chart for Anthony's pizza.
-      function drawAnthonyChart() {
-        
+// Callback that draws the pie chart for Anthony's pizza.
+function drawAnthonyChart() {
+
 		var jsonData = $.ajax({
 			url: "getDataBrokers.php",
 			dataType: "json",
@@ -77,31 +104,31 @@
 		var data = new google.visualization.DataTable(jsonData);
 
 		//var temp = " <?php require ('./GetChartData.php'); ?>";
-        // Create the data table for Anthony's pizza.
-        //var data = new google.visualization.DataTable();
+// Create the data table for Anthony's pizza.
+//var data = new google.visualization.DataTable();
 		//var point_one = 'Mushrooms';
 		//var one_val = 2;
 		var slice_val = 2; // does not seem to work in the slices
 		var slice_offset = 0.2;
-        //data.addColumn('string', 'Topping');
-        //data.addColumn('number', 'Slices');
-        //data.addRows([
-        //  [point_one, one_val],
+//data.addColumn('string', 'Topping');
+//data.addColumn('number', 'Slices');
+//data.addRows([
+//  [point_one, one_val],
 
-       // ]);
+// ]);
 
-        // Set options for Anthony's pie chart.
-        var options = {title:'Year To Date: Revenue By Broker',
-                       width:500,
-                       height:300,
+// Set options for Anthony's pie chart.
+var options = {title:'Year To Date: Revenue By Broker',
+width:500,
+height:300,
 					   is3D: true,
 					   //slices: {2 :{offset: slice_offset}},
 					  };
 
-        // Instantiate and draw the chart for Anthony's pizza.
-        var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
-        chart.draw(data, options);
-      }
+// Instantiate and draw the chart for Anthony's pizza.
+var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
+chart.draw(data, options);
+}
 
 	  function drawDriverChart() {
 		var jsonData = $.ajax({
@@ -139,7 +166,7 @@
 		chart.draw(data, options);
 	  }
 	
-    </script>
+</script>
 
 
 
@@ -253,7 +280,7 @@ body {margin:0;}
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
 				<li><a href=/OwnerViewExpense.php>View Expense</a></li>
-               	<li><a href=/OwnerApproveExpense.php>Approve Expense</a></li>
+	<li><a href=/OwnerApproveExpense.php>Approve Expense</a></li>
 				 <li><a href=/RemoveExpense.php>Remove Expense</a></li>
 				<li><a href="/AddVendor.php">Add Vendor</a></li>
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
@@ -276,17 +303,17 @@ body {margin:0;}
 				<h2>Company at a Glance  </h2>
 			</div>
 
-    <!--Table and divs that hold the pie charts-->
-    <table class="columns" align="center">
-      <tr>
-        <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
-        <td><div id="Anthony_chart_div" style="border: 1px solid #ccc;"></div></td>
+<!--Table and divs that hold the pie charts-->
+<table class="columns" align="center">
+<tr>
+<td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+<td><div id="Anthony_chart_div" style="border: 1px solid #ccc;"></div></td>
 	  </tr>
 	  <tr>
 		<td><div id="Driver_chart" style="border: 1px solid #ccc"></div></td>
 		<td><div id="Truck_chart" style="border: 1px solid #ccc"></div></td>
-      </tr>
-    </table>
+</tr>
+</table>
 
 	</div>
 </div>

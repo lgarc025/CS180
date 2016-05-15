@@ -43,7 +43,7 @@ if ($result->num_rows > 0)
 					 $cookie_name = "admin";
 					 $cookie_value = "$row[IsAdmin]";
 					 setcookie($cookie_name, $cookie_value, time() + (86 * 1), '/');
-					 
+					
 					 if($row[IsAdmin])
 					 {
 					 	//Redirect Page

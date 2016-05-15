@@ -1,4 +1,4 @@
-#!/bin/bash
+a#!/bin/bash
 
 
 
@@ -8,12 +8,14 @@ do
 	then
 		cat $item | while IFS=' ' read row
 		do
-			echo "$row" >> temp.php;
-			if [[ "$row" == *"/OwnerViewExpense.php"* ]] 
+			if [[ "$row" == *'setcookie($cookie_name, $cookie_value, time() + (60 * 1),'* ]] 
 			then
 				#string to insert where we stop
-				echo "                <li><a href="/OwnerApproveExpense.php">Approve Expenses</a></li>" >> temp.php;
+				echo '   	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");'  >> temp.php;
+				echo '  	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/" );'
 				echo "DONE MASTER";
+			else
+				 echo "$row" >> temp.php;
 			fi
 		done
 		#copy the temp file to the orginal file
