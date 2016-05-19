@@ -133,6 +133,7 @@ body {margin:0;}
 
 				<li><a href="/OwnerDisplayBrokerTicket.php">View Tickets</a></li>
 				<li><a href="/OwnerPaidTicket.php">Update Paid Tickets</a></li>
+   			<li><a href=/TicketSearch.php>Unpaid Ticket Search</a></li>
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
@@ -150,7 +151,7 @@ body {margin:0;}
 			<ul>
 				<li><a href="/AddTruck.php">Add Truck</a></li>
 				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
-   			<li><a href=/OwnerDisplayTruckTicket.php>Revenue Report</a></li>
+			<li><a href=/OwnerDisplayTruckTicket.php>Revenue Report</a></li>
 			</ul></li><li>
 			<a href="#ex">Expenses</a>
 			<ul>

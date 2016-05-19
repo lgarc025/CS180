@@ -159,7 +159,7 @@ li a:hover:not(.active) {
 		<div class="dropdown-content">
 			<a href="AddTruck.php">Add Truck</a>
 			<a href="RemoveTruck.php">Remove Truck</a>
-   			<li><a href=/OwnerDisplayTruckTicket.php>Revenue Report</a></li>
+			<li><a href=/OwnerDisplayTruckTicket.php>Revenue Report</a></li>
 		</div>
 	</li>
 <li class="dropdown">
