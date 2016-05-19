@@ -10,10 +10,10 @@ do
 		do
 
 		    echo "$row" >> temp.php;
-			if [[ "$row" == *'RemoveTruck.php">Remove Truck'* ]] 
+			if [[ "$row" == *'OwnerPaidTicket.php">Update Paid Tickets'* ]] 
 			then
 				#string to insert where we stop
-				echo '   			<li><a href=/OwnerDisplayTruckTicket.php>Revenue Report</a></li>'  >> temp.php;
+				echo '   			<li><a href=/TicketSearch.php>Unpaid Ticket Search</a></li>'  >> temp.php;
 				echo "DONE MASTER";
 				echo $item;
 			fi
