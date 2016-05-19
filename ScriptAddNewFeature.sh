@@ -8,19 +8,19 @@ do
 	then
 		cat $item | while IFS=' ' read row
 		do
-			if [[ "$row" == *'setcookie($cookie_name, $cookie_value, time() + (60 * 1),'* ]] 
+
+		    echo "$row" >> temp.php;
+			if [[ "$row" == *'RemoveTruck.php">Remove Truck'* ]] 
 			then
 				#string to insert where we stop
-				echo '   	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");'  >> temp.php;
-				echo '  	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/" );'
+				echo '   			<li><a href=/OwnerDisplayTruckTicket.php>Revenue Report</a></li>'  >> temp.php;
 				echo "DONE MASTER";
-			else
-				 echo "$row" >> temp.php;
+				echo $item;
 			fi
 		done
 		#copy the temp file to the orginal file
 
-		echo $item; 
+		#echo $item; 
 		cat temp.php  > "$item"
 		#remove the temp file
 		rm temp.php
