@@ -16,13 +16,13 @@
 
 	$cookie_name = "login";
 	$cookie_value = $_COOKIE["login"];
-   	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");
+	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");
 	$cookie_name = "uname";
 	$cookie_value = $_COOKIE["uname"];
-   	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");
+	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");
 	$cookie_name = "admin";
 	$cookie_value = $_COOKIE["admin"];
-   	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");
+	setcookie($cookie_name, $cookie_value, time() + (60 * 10), "/");
 
 ?>
 <!DOCTYPE html>
@@ -159,6 +159,7 @@ li a:hover:not(.active) {
 		<div class="dropdown-content">
 			<a href="AddTruck.php">Add Truck</a>
 			<a href="RemoveTruck.php">Remove Truck</a>
+   			<li><a href=/OwnerDisplayTruckTicket.php>Revenue Report</a></li>
 		</div>
 	</li>
 <li class="dropdown">

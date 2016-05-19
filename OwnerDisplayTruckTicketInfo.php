@@ -78,6 +78,9 @@ die("Connection failed: " . $conn->connect_error);
 //Run Query to authenticate User
 $sql = "SELECT * FROM Ticket Where TicketDate Between '$start' and '$end' $chauler $cbroker $ctruckid $cuser ORDER BY TicketDate DESC";
 $result = $conn->query($sql);
+$sql = "SELECT SUM(Total) FROM Ticket Where TicketDate Between '$start' and '$end' $chauler $cbroker $ctruckid $cuser";
+$result1 = $conn->query($sql);
+$rowsum1 = $result1->fetch_assoc();
 
 echo "From: $start to $end";
 echo "<table id='t01' class='center'>"; // start a table tag in the HTML
@@ -104,9 +107,7 @@ while($row = $result->fetch_assoc())
 }
 
 
-echo "<tr> <td colspan='10' style='text-align:center' > Broker Total: $".round($rowsum1['SUM(Total)'], 2)." </td> </tr> ";
-echo "<tr> <td colspan='10' style='text-align:center' >  Total: $".round($DriverTotal, 2)." @  Broker Fee of  ".$PayRate."% </td> </tr> ";
-echo "<tr> <td colspan='10' style='text-align:center' >  Total Amount  Due: $".round($DueTotal,2)." @  Broker Fee of  ".$PayRate."% </td> </tr> ";
+echo "<tr> <td colspan='10' style='text-align:center' >  Total: $".round($rowsum1['SUM(Total)'], 2)." </td> </tr> ";
 $conn->close();
 echo "</table>"; //Close the table
 
