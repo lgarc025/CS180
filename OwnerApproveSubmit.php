@@ -12,6 +12,13 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
 //For Ever Item in the list
+
+if(empty($_POST['check_list']))
+{
+		header('Location: http://www.luistrucking.com/OwnerApproveTicketError.php');
+		return;
+}
+
 if(!empty($_POST['check_list']))
 {
 		foreach($_POST['check_list'] as $check)
@@ -23,11 +30,8 @@ if(!empty($_POST['check_list']))
 }
 
 
-
-
-
 $conn->close();
 
-header('Location: http://www.luistrucking.com/OwnerApproveTicket.php');
+header('Location: http://www.luistrucking.com/OwnerApproveTicketOkay.php');
 
 ?>

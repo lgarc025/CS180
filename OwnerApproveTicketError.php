@@ -42,6 +42,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <style>
+
 body {margin:0;}
 .header{
 	background-color:#333;
@@ -130,10 +131,10 @@ body {margin:0;}
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a href="#drvr">Driver</a>
+		<a class="active" href="#drvr">Driver</a>
 			<ul>
 
-	<li><a href=/AddTicketOwner.php>Add Ticket</a></li>
+				<li><a href="/AddTicketOwner.php">Add Ticket</a></li>
 				<li><a href="/OwnerDisplayDriverTicket.php">View Tickets</a></li>
 <li><a href=/OwnerRemoveTicket.php>Remove Ticket</a></li>
 				<li><a href="/OwnerApproveTicket.php">Approve Tickets</a></li>
@@ -146,7 +147,7 @@ body {margin:0;}
 				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
    			<li><a href=/OwnerDisplayTruckTicket.php>Revenue Report</a></li>
 			</ul></li><li>
-			<a class="active" href="#ex">Expenses</a>
+			<a href="#ex">Expenses</a>
 			<ul>
 
 				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
@@ -173,31 +174,11 @@ body {margin:0;}
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Remove Expense Entries </h2>
-
-			<form action="RemoveExpenseGenRep.php" method="post">
+				<h2>Tickets To Approve </h2>
+			<form action="OwnerApproveTicket.php" method="post">
 			</div>
-			Expenses Removed!
+			Error Approving Tickets, Try Again!
 			<br/>
-			<label for="driver">Select Vendor:</label>
-			<br/>
-			<select name='vendor' id='vendor'>
-			<option value='*'>All</option>
-			<?php
-				require('./GetVendor.php');
-			?>
-			</select>
-			<br/>
-			<label for="driver">Select Expense Type:</label>
-			<br/>
-			<select name='type' id='type'>
-			<option value='*'>All</option>
-			<?php
-				require('./GetExpenseType.php');
-			?>
-			</select>
-			<br/>
-
 			<label for="driver">Select Driver:</label>
 			<br/>
 			<select name='driver' id='driver'>
@@ -207,30 +188,15 @@ body {margin:0;}
 			?>
 			</select>
 			<br/>
-
-			<label for="driver">Select TruckID:</label>
-			<br/>
-			<select name='truckid' id='truckid'>
-			<option value='*'>All</option>
-			<?php
-				require('./GetTruckID.php');
-			?>
-			</select>
-			<br/>
-<br/>
-			<label for="time">Start Date:</label>
-			<br/>
-			<input type="date" name="startdate" id="date">
-			<br/>
-			<label for="time">End Date:</label>
-			<br/>
-			<input type="date" name="enddate" id="enddate">
 			<br/>
 			<button type="submit">Generate Report</button>
+			</form>
 			<br/>
 			<br/>
-			<?//php include('DisplayDriverTicketInfo.php'); ?>
+			<form action="OwnerApproveSubmit.php" method="post">
+			<?php include('OwnerApproveTicketInfo.php'); ?>
 			<br/>
+			<button type="submit">Submit Approve List</button>
 			</form>
 		</div>
 	</div>

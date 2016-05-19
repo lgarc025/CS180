@@ -16,6 +16,7 @@ die("Connection failed: " . $conn->connect_error);
 if(empty($_POST['check_list']))
 {
 	header('Location: http://www.luistrucking.com/RemoveExpenseError.php');
+	return;
 }
 
 //For Ever Item in the list
