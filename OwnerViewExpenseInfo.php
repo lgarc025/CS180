@@ -10,7 +10,23 @@ $end = $_POST["enddate"];
 $vendor =$_POST["vendor"];
 $expensetype =$_POST["type"];
 $truckid = $_POST["truckid"];
+$currentdate = date("y-m-d");
+$currentyear = explode('-', $currentdate)[0];
 
+if(strlen($start) == 0)
+{
+	$start = $currentyear."-01-01";
+}
+
+if(strlen($end) == 0)
+{
+	$end = date("y-m-d");
+}
+
+if(strlen($end) == 0)
+{
+	$end = date("y-m-d");
+}
 
 if ($user == "*")
 {
@@ -76,12 +92,12 @@ echo "<tr> <th>Driver</th> <th>Date</th> <th>TruckID</th> <th>Vendor</th> <th>Ty
 
 while($row = $result->fetch_assoc())
 {
-		echo "<tr><td>" . $row['DriverName'] . "</td><td>" . $row['ExpenseDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['VendorName'] . "</td><td>" . $row['ExpenseType'] . "</td><td>" . $row['Details'] . "</td><td>" ." $". $row['Amount'] . "</td></tr>";
+		echo "<tr><td>" . $row['DriverName'] . "</td><td>" . $row['ExpenseDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['VendorName'] . "</td><td>" . $row['ExpenseType'] . "</td><td>" . $row['Details'] . "</td><td>" ." $". round($row['Amount'],2) . "</td></tr>";
 		//$row['index'] the index here is a field name
 
 }
 
-echo "<tr> <td colspan='9' style='text-align:center' > Expense Total: $".$rowsum['SUM(Amount)']." </td> </tr> ";
+echo "<tr> <td colspan='9' style='text-align:center' > Expense Total: $".round($rowsum['SUM(Amount)'],2)." </td> </tr> ";
 $conn->close();
 echo "</table>"; //Close the table
 

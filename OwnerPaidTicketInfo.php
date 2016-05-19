@@ -41,7 +41,7 @@ while($row = $result->fetch_assoc())
 				$Approval="Not Approved";
 
 		}
-		echo "<tr><td>" ." <input type='checkbox' name='check_list[]' value='".$row['TicketID']."'</td><td>"  . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>". $row['DriverName']. "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['BrokerName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . $row['Amount'] . "</td><td>" ." $". round($row['Total'],2)."</tr></td>";
+		echo "<tr><td>" ." <input type='checkbox' name='check_list[]' value='".$row['TicketID']."'</td><td>"  . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>". $row['DriverName']. "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['BrokerName'] . "</td><td>" ."$" .round($row['Rate'],2) . "</td><td>" . round($row['Amount'],2) . "</td><td>" ." $". round($row['Total'],2)."</tr></td>";
 		
 
 }

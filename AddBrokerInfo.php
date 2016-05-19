@@ -18,7 +18,7 @@ echo $Hauler;
 
 echo strlen($Hauler);
 
-if (strlen($Hauler) == 0 || strlen($Fee) == 0 )
+if (strlen($Hauler) == 0 || strlen($Fee) == 0 || $Fee > 99)
 {
 
 		header('Location: http://www.luistrucking.com/AddBrokerError.php');

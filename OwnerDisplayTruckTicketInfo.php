@@ -4,9 +4,14 @@ $username = "Luis";
 $password = "Luis1234";
 $dbname = "LuisTrucking";
 
-$user = $_POST["broker"];
+
+$truckid =$_POST["truck"];
+$user =$_POST["driver"];
+$hauler =$_POST["hauler"];
+$broker = $_POST["broker"];
 $start = $_POST["startdate"];
 $end = $_POST["enddate"];
+
 $currentdate = date("y-m-d");
 $currentyear = explode('-', $currentdate)[0];
 
@@ -25,6 +30,44 @@ if(strlen($end) == 0)
 	$end = date("y-m-d");
 }
 
+if ($user == "*")
+{
+	 $cuser = "";
+}
+else
+{
+	 $cuser = "and DriverName='$user'";
+}
+
+if ($broker == "*")
+{
+	 $cbroker = "";
+}
+else
+{
+	 $cbroker = "and BrokerName='$broker'";
+}
+
+if ($hauler == "*")
+{
+	 $chauler = "";
+}
+else
+{
+	 $chauler = "and HaulerName='$hauler'";
+}
+
+if ($truckid == "*")
+{
+	$ctruckid = "";
+}
+else
+{
+	$ctruckid = "and TruckID='$truckid'";
+}
+
+
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -33,25 +76,10 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
 //Run Query to authenticate User
-$sql = "SELECT * FROM Ticket Where TicketDate Between '$start' and '$end' and BrokerName ='$user'  ORDER BY TicketDate DESC";
+$sql = "SELECT * FROM Ticket Where TicketDate Between '$start' and '$end' $chauler $cbroker $ctruckid $cuser ORDER BY TicketDate DESC";
 $result = $conn->query($sql);
-$sum = "SELECT SUM(Total) FROM Ticket Where TicketDate Between '$start' and '$end' and BrokerName ='$user' and Paid ='0'";
-$sumresult = $conn->query($sum);
-$rowsum = $sumresult->fetch_assoc();
-//Get Raw Total
-$sum1 = "SELECT SUM(Total) FROM Ticket Where TicketDate Between '$start' and '$end' and BrokerName ='$user'";
-$sumresult1 = $conn->query($sum1);
-$rowsum1 = $sumresult1->fetch_assoc();
-//Get Broker Fee
-$rate = "SELECT BrokerFee From Broker Where BrokerName='$user'";
-$rateresult = $conn->query($rate);
-$rowresult = $rateresult->fetch_assoc();
-$PayRate = $rowresult[BrokerFee];
 
-$DriverTotal = (((100 - $PayRate) * $rowsum1['SUM(Total)'])/100);
-$DueTotal = (((100 - $PayRate) * $rowsum['SUM(Total)'])/100);
-
-echo "From: $start to $end for $user ";
+echo "From: $start to $end";
 echo "<table id='t01' class='center'>"; // start a table tag in the HTML
 echo "<tr> <th>TicketID</th> <th>Date</th> <th>TruckID</th> <th>Hauler</th> <th>Driver</th> <th>Rate</th> <th>Tons/Hours</th> <th>Total</th> <th>Approval</th>  <th>Paid Status</th> </tr> ";
 

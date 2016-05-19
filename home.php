@@ -56,6 +56,13 @@ google.charts.setOnLoadCallback(drawAnthonyChart);
 	  google.charts.setOnLoadCallback(drawDriverChart);
 	  google.charts.setOnLoadCallback(drawTruckChart);
 	
+$(window).on("throttledresize", function(event){
+		drawSarahChart();
+		drawAnthonyChart();
+		drawDriverChart();
+		drawTruckChart();
+});
+
 // Callback that draws the pie chart for Sarah's pizza.
 function drawSarahChart() {
 
@@ -81,8 +88,8 @@ function drawSarahChart() {
 
 // Set options for Sarah's pie chart.
 var options = {title:'Year To Date: Expenses',
-width:500,
-height:300,
+width:'100%',
+height:'100%',
 					   is3D: true,
 					   //slices: {3: {offset: 0.3}},
 					  };
@@ -119,8 +126,8 @@ function drawAnthonyChart() {
 
 // Set options for Anthony's pie chart.
 var options = {title:'Year To Date: Revenue By Broker',
-width:500,
-height:300,
+width:'100%',
+height:'100%',
 					   is3D: true,
 					   //slices: {2 :{offset: slice_offset}},
 					  };
@@ -140,8 +147,8 @@ chart.draw(data, options);
 		var data = new google.visualization.DataTable(jsonData);
 
 		var options = {title:'Year To Date: Revenue By Driver',
-					   width:500,
-					   height:300,
+					   width:'100%',
+					   height:'100%',
 					  }
 
 		var chart = new google.visualization.ColumnChart(document.getElementById('Driver_chart'));
@@ -158,8 +165,8 @@ chart.draw(data, options);
 		var data = new google.visualization.DataTable(jsonData);
 
 		var options = {title:'Year To Date: Revenue By Truck',
-					   width:500,
-					   height:300,
+					   width:'100%',
+					   height:'100%',
 					  }
 
 		var chart = new google.visualization.ColumnChart(document.getElementById('Truck_chart'));
@@ -304,7 +311,7 @@ body {margin:0;}
 			</div>
 
 <!--Table and divs that hold the pie charts-->
-<table class="columns" align="center">
+<table class="columns" align="center" width="80%" height"80%">
 <tr>
 <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
 <td><div id="Anthony_chart_div" style="border: 1px solid #ccc;"></div></td>

@@ -76,7 +76,7 @@ echo "<tr> <th>Delete</th> <th>Driver</th> <th>Date</th> <th>TruckID</th> <th>Ve
 
 while($row = $result->fetch_assoc())
 {
-		echo "<tr><td>" ." <input type='checkbox' name='check_list[]' value='".$row['ExpenseID']."'</td><td>". $row['DriverName'] . "</td><td>" . $row['ExpenseDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['VendorName'] . "</td><td>" . $row['ExpenseType'] . "</td><td>" . $row['Details'] . "</td><td>" ." $". $row['Amount'] . "</td></tr>";
+		echo "<tr><td>" ." <input type='checkbox' name='check_list[]' value='".$row['ExpenseID']."'</td><td>". $row['DriverName'] . "</td><td>" . $row['ExpenseDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['VendorName'] . "</td><td>" . $row['ExpenseType'] . "</td><td>" . $row['Details'] . "</td><td>" ." $". round($row['Amount'],2) . "</td></tr>";
 		//$row['index'] the index here is a field name
 
 }

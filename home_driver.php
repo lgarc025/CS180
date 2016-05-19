@@ -62,110 +62,27 @@ function drawSarahChart() {
 // Create the data table for Sarah's pizza.
 //var data = new google.visualization.DataTable();
 		var jsonData = $.ajax({
-				url: "getData.php",
+				url: "getDataEarnings.php",
 				dataType: "json",
 				async: false
 				}).responseText;
 
 		var data = new google.visualization.DataTable(jsonData);
 
-//data.addColumn('string', 'Topping');
-//data.addColumn('number', 'Slices');
-//data.addRows([
-//  ['Mushrooms', 1],
-//  ['Onions', 1],
-//  ['Olives', 2],
-//  ['Zucchini', 2],
-//  ['Pepperoni', 1]
-//]);
-
 // Set options for Sarah's pie chart.
-var options = {title:'Year To Date: Expenses',
-width:500,
-height:300,
-					   is3D: true,
+var options = {title:'Year To Date: Driver Earnings',
+				width:1000,
+				height:500,
+				is3D: true,
+				animation: {startup: true},
 					   //slices: {3: {offset: 0.3}},
 					  };
 
 // Instantiate and draw the chart for Sarah's pizza.
-var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
+var chart = new google.visualization.LineChart(document.getElementById('Sarah_chart_div'));
 chart.draw(data, options);
 }
 
-// Callback that draws the pie chart for Anthony's pizza.
-function drawAnthonyChart() {
-
-		var jsonData = $.ajax({
-			url: "getDataBrokers.php",
-			dataType: "json",
-			async: false
-			}).responseText;
-
-		var data = new google.visualization.DataTable(jsonData);
-
-		//var temp = " <?php require ('./GetChartData.php'); ?>";
-// Create the data table for Anthony's pizza.
-//var data = new google.visualization.DataTable();
-		//var point_one = 'Mushrooms';
-		//var one_val = 2;
-		var slice_val = 2; // does not seem to work in the slices
-		var slice_offset = 0.2;
-//data.addColumn('string', 'Topping');
-//data.addColumn('number', 'Slices');
-//data.addRows([
-//  [point_one, one_val],
-
-// ]);
-
-// Set options for Anthony's pie chart.
-var options = {title:'Year To Date: Revenue By Broker',
-width:500,
-height:300,
-					   is3D: true,
-					   //slices: {2 :{offset: slice_offset}},
-					  };
-
-// Instantiate and draw the chart for Anthony's pizza.
-var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
-chart.draw(data, options);
-}
-
-	  function drawDriverChart() {
-		var jsonData = $.ajax({
-				url:"getDataDrivers.php",
-				dataType:"json",
-				async:false
-			}).responseText;
-
-		var data = new google.visualization.DataTable(jsonData);
-
-		var options = {title:'Year To Date: Revenue By Driver',
-					   width:500,
-					   height:300,
-					  }
-
-		var chart = new google.visualization.ColumnChart(document.getElementById('Driver_chart'));
-		chart.draw(data, options);
-	  }
-
-	  function drawTruckChart() {
-		var jsonData = $.ajax({
-				url:"getDataTrucks.php",
-				dataType:"json",
-				async:false
-			}).responseText;
-		
-		var data = new google.visualization.DataTable(jsonData);
-
-		var options = {title:'Year To Date: Revenue By Truck',
-					   width:500,
-					   height:300,
-					  }
-
-		var chart = new google.visualization.ColumnChart(document.getElementById('Truck_chart'));
-		chart.draw(data, options);
-	  }
-	
 </script>
 
 

@@ -42,6 +42,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <style>
+
 body {margin:0;}
 .header{
 	background-color:#333;
@@ -130,7 +131,7 @@ body {margin:0;}
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a class="active" href="#drvr">Driver</a>
+		<a href="#drvr">Driver</a>
 			<ul>
 
 	<li><a href=/AddTicketOwner.php>Add Ticket</a></li>
@@ -140,7 +141,7 @@ body {margin:0;}
 				<li><a href="/AddDriver.php">Add Driver</a></li>
 				<li><a href="/RemoveDriver.php">Remove Driver</a></li>
 			</ul></li><li>
-			<a href="#trk">Trucks</a>
+			<a class="active" href="#trk">Trucks</a>
 			<ul>
 				<li><a href="/AddTruck.php">Add Truck</a></li>
 				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
@@ -157,12 +158,11 @@ body {margin:0;}
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
 				<li><a href="/RemoveExpenseType.php">Remove Expense Type</a></li>
 			</ul></li>
-		<li style = "float:right"><a href="logout.php">Logout</a></li>
+		<li style = "float:right"><a href="luistrucking.html">Logout</a></li>
 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
 	</ul>
 	</div>
 </div>
-
 
 
 
@@ -172,24 +172,15 @@ body {margin:0;}
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Remove Ticket Entries </h2>
-			<form action="OwnerRemoveTicketGenRep.php" method="post">
+				<h2>Revenue By Truck </h2>
+			<form action="OwnerGenRepDisplayTruckTicket.php" method="post">
 			</div>
-			<label for="driver">Select Hauler:</label>
+			<label for="broker">Select Truck:</label>
 			<br/>
-			<select name='hauler' id='hauler'>
+			<select name='truck' id='truck'>
 			<option value='*'>All</option>
 			<?php
-				require('./GetHaulers.php');
-			?>
-			</select>
-			<br/>
-			<label for="driver">Select Broker:</label>
-			<br/>
-			<select name='broker' id='broker'>
-			<option value='*'>All</option>
-			<?php
-				require('./GetBrokers.php');
+				require('./GetTruckID.php');
 			?>
 			</select>
 			<br/>
@@ -204,19 +195,30 @@ body {margin:0;}
 			</select>
 			<br/>
 
-			<label for="driver">Select TruckID:</label>
+			<label for="driver">Select Hauler:</label>
 			<br/>
-			<select name='truckid' id='truckid'>
+			<select name='hauler' id='hauler'>
 			<option value='*'>All</option>
 			<?php
-				require('./GetTruckID.php');
+				require('./GetHaulers.php');
 			?>
 			</select>
 			<br/>
-<br/>
+
+			<label for="broker">Select Broker:</label>
+			<br/>
+			<select name='broker' id='broker'>
+			<option value='*'>All</option>
+			<?php
+				require('./GetBrokers.php');
+			?>
+			</select>
+			<br/>
+
+
 			<label for="time">Start Date:</label>
 			<br/>
-			<input type="date" name="startdate" id="date">
+			<input type="date" name="startdate" id="startdate">
 			<br/>
 			<label for="time">End Date:</label>
 			<br/>
@@ -225,12 +227,8 @@ body {margin:0;}
 			<button type="submit">Generate Report</button>
 			<br/>
 			<br/>
-			</form>
-			<form action="OwnerRemoveTicketSubmit.php" method="post">
+			<?php include('OwnerDisplayTruckTicketInfo.php'); ?>
 			<br/>
-			<?php include('OwnerRemoveTicketInfo.php'); ?>
-			<br/>
-			<button type="submit">Submit Delete List</button>
 			</form>
 		</div>
 	</div>
@@ -245,5 +243,3 @@ body {margin:0;}
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');
 	});
-<script/>
-

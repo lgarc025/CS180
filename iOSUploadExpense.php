@@ -74,21 +74,12 @@ function dbConnect()
 
 	$User = $_POST["login"];
 	$Driver =$_POST["name"];
-	$TruckID = $_POST["taskOption"];
+	$TruckID = $_POST["truckid"];
 	$Vendor = $_POST["vendor"];
 	$ExpenseType = $_POST["expensetype"];
 	$Amount =$_POST["amount"];
 	$Description =$_POST["description"];
 	$Date =$_POST["date"];
-
-	echo $User;
-	echo $Driver;
-	echo $TruckID;
-	echo $Vendor;
-	echo $ExpenseType;
-	echo $Amount;
-	echo $Description;
-	echo $Date;
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -99,19 +90,17 @@ function dbConnect()
 	}
 
 	//Run Query to authenticate User
-	$sql = "INSERT INTO Expense (ExpenseDate, ExpenseType, VendorName, Amount, DriverName, TruckID, Details)
-	VALUES ('$Date', '$ExpenseType', '$Vendor', '$Amount', '$Driver', '$TruckID', '$Description');";
-
-	echo $sql;
+	$sql = "INSERT INTO Expense (ExpenseDate, ExpenseType, VendorName, Amount, DriverName, TruckID, Details, Approve)
+	VALUES ('$Date', '$ExpenseType', '$Vendor', '$Amount', '$Driver', '$TruckID', '$Description', FALSE);";
 
 	if(!mysqli_query($conn,$sql))
 	{
-			echo "Failure";
+			sendResponse(403, 'Bad');
+			return false;
 	}
 	else
 	{
-			//echo $sql;
-			echo "All Good adding Ticket";
+			sendResponse(200, 'Good');
 	}
 }
 dbConnect();

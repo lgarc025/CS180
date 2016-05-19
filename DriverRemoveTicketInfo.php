@@ -10,6 +10,23 @@ $end = $_POST["enddate"];
 $hauler =$_POST["hauler"];
 $broker =$_POST["broker"];
 $truckid = $_POST["truckid"];
+$currentdate = date("y-m-d");
+$currentyear = explode('-', $currentdate)[0];
+
+if(strlen($start) == 0)
+{
+	$start = $currentyear."-01-01";
+}
+
+if(strlen($end) == 0)
+{
+	$end = date("y-m-d");
+}
+
+if(strlen($end) == 0)
+{
+	$end = date("y-m-d");
+}
 
 
 if ($user == "*")

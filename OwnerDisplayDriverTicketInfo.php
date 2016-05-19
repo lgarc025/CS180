@@ -7,6 +7,23 @@ $dbname = "LuisTrucking";
 $user =$_POST["driver"];
 $start = $_POST["startdate"];
 $end = $_POST["enddate"];
+$currentdate = date("y-m-d");
+$currentyear = explode('-', $currentdate)[0];
+
+if(strlen($start) == 0)
+{
+	$start = $currentyear."-01-01";
+}
+
+if(strlen($end) == 0)
+{
+	$end = date("y-m-d");
+}
+
+if(strlen($end) == 0)
+{
+	$end = date("y-m-d");
+}
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -40,7 +57,7 @@ while($row = $result->fetch_assoc())
 				$Approval="Not Approved";
 
 		}
-		echo "<tr><td>" . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['BrokerName'] . "</td><td>" ."$" .$row['Rate'] . "</td><td>" . $row['Amount'] . "</td><td>" ." $". round($row['Total'],2) . "</td><td>". "$Approval" ."</td></tr>";
+		echo "<tr><td>" . $row['TicketID'] . "</td><td>" . $row['TicketDate']  . "</td><td>" . $row['TruckID'] . "</td><td>" . $row['HaulerName'] . "</td><td>" . $row['BrokerName'] . "</td><td>" ."$" .round($row['Rate'],2) . "</td><td>" .round($row['Amount'],2) . "</td><td>" ." $". round($row['Total'],2) . "</td><td>". "$Approval" ."</td></tr>";
 		//$row['index'] the index here is a field name
 
 }

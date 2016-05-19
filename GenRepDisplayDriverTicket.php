@@ -7,7 +7,7 @@
 	
 	 }
 	
-	 if($_COOKIE["admin"] == '0')
+	 if($_COOKIE["admin"] == '1')
 	 {
 			 header('Location: http://www.luistrucking.com/home_sec.html');
 
