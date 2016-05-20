@@ -6,15 +6,14 @@ do
 	then
 		cat $item | while IFS=' ' read row
 		do
-
-$dbname = $_COOKIE[db];
+			if [[ "$row" == *'ChangeOwnerPassword.php">Change Password'* ]]
 			then
-				echo '$dbname = $_COOKIE['db'];' >> temp.php;
+				echo '				<li><a href="/RemoveAdmin.php.php">Remove Admin Account</a></li>' >> temp.php;
 				echo "DONE MASTER";
 				echo $item;
-			else
-		    	echo "$row" >> temp.php;
 			fi
+
+		    echo "$row" >> temp.php;
 		done
 		#copy the temp file to the orginal file
 
