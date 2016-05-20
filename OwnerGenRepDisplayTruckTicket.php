@@ -162,6 +162,8 @@ body {margin:0;}
 				</ul></li><li>
 			<a  href="#acc">Account</a>
 			<ul>
+				<li><a href="/AddAdmin.php">Add Admin Account</a></li>
+				<li><a href="/RemoveAdmin.php">Remove Admin Account</a></li>
 			<li><a href="/ChangeOwnerPassword.php">Change Password</a></li>
 			</ul></li>
 		<li style = "float:right"><a href="logout.php">Logout</a></li>

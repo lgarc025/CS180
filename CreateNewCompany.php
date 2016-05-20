@@ -50,7 +50,7 @@ if ($result == false)
 $dbname = $newcompany;
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$sql = "CREATE TABLE Driver ( DriverName CHAR(50), login CHAR(50), password char(50) NOT NULL, 
+$sql = "CREATE TABLE Driver ( DriverName CHAR(50), login CHAR(50), password char(50) NOT NULL,
 PayRate Real, IsAdmin Bool, Primary Key(DriverName))";
 $result = $conn->query($sql);
 
@@ -60,16 +60,16 @@ $result = $conn->query($sql);
 $sql = "CREATE TABLE Hauler (HaulerName CHAR(50), Primary Key(HaulerName))";
 $result = $conn->query($sql);
 
-$sql = "CREATE TABLE Vendor (VendorName CHAR(50), Primary Key(VendorName))"; 
+$sql = "CREATE TABLE Vendor (VendorName CHAR(50), Primary Key(VendorName))";
 $result = $conn->query($sql);
 
-$sql = "CREATE TABLE ExpenseType (ExpenseTypeName CHAR(50), Primary Key(ExpenseTypeName))"; 
+$sql = "CREATE TABLE ExpenseType (ExpenseTypeName CHAR(50), Primary Key(ExpenseTypeName))";
 $result = $conn->query($sql);
 
-$sql = "CREATE TABLE Broker (BrokerName CHAR(50), BrokerFee integer, Primary Key(BrokerName))"; 
+$sql = "CREATE TABLE Broker (BrokerName CHAR(50), BrokerFee integer, Primary Key(BrokerName))";
 $result = $conn->query($sql);
 
-$sql = "CREATE TABLE ExpenseType (ExpenseTypeName CHAR(50), Primary Key(ExpenseTypeName))"; 
+$sql = "CREATE TABLE ExpenseType (ExpenseTypeName CHAR(50), Primary Key(ExpenseTypeName))";
 $result = $conn->query($sql);
 
 $sql = "CREATE TABLE Ticket (TicketID CHAR(50) NOT NULL, TicketDate DATE, Rate REAL NOT NULL, Amount Real NOT NULL, Total Real, DriverName CHAR(50) NOT NULL, TruckID CHAR(10) NOT NULL, BrokerName CHAR(50) NOT NULL, Approval BOOLEAN, Paid BOOLEAN, HaulerName CHAR(50) NOT NULL, FOREIGN KEY (HaulerName) REFERENCES Hauler(HaulerName), FOREIGN KEY (DriverName) REFERENCES Driver(DriverName), FOREIGN KEY (TruckID) REFERENCES Truck(TruckID), FOREIGN KEY (BrokerName) REFERENCES Broker(BrokerName), Primary Key(TicketID))";
@@ -82,7 +82,7 @@ $result = $conn->query($sql);
 $password = $_POST['password'];
 $password1 = $_POST['password1'];
 
-$sql = "INSERT INTO Driver ( DriverName, login, password, PayRate, IsAdmin) VALUES ('$name', '$username', '$password', '$rate', '1')"; 
+$sql = "INSERT INTO Driver ( DriverName, login, password, PayRate, IsAdmin) VALUES ('$name', '$username', '$password', '$rate', '1')";
 $result = $conn->query($sql);
 
 $conn->close();
