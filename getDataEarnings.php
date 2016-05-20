@@ -51,11 +51,13 @@
 			 $dname = $_COOKIE['uname'];
 			 $currentdate = date("y-m-d");
 			 $currentyear = explode('-', $currentdate)[0];
-			 $start = $currentyear . "-01-01";
-			 $end = $currentyear . "-12-31";
+			 $currentday = "01";
+			 $currentmonth = explode('-', $currentdate)[1];
+			 $start = ($currentyear - 1)."-".$currentmonth."-".$currentday;
+			 $end = date("y-m-d");
 
 			 $conn = new mysqli($servername, $username, $password, $dbname);
-			 $sql = "SELECT TicketDate, SUM(Total) FROM Ticket Where DriverName ='$dname' and TicketDate BETWEEN '$start' and '$end' Group By Month(TicketDate)";
+			 $sql = "SELECT TicketDate, SUM(Total) FROM Ticket Where DriverName ='$dname' and TicketDate BETWEEN '$start' and '$end' Group By Year(TicketDate), Month(TicketDate)";
 
 			 $result = $conn->query($sql);
 			 $sql = "SELECT PayRate FROM Driver Where DriverName = '$dname'";

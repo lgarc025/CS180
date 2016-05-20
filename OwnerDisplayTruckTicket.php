@@ -173,7 +173,7 @@ body {margin:0;}
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Revenue By Truck </h2>
+				<h2>Revenue Report </h2>
 			<form action="OwnerGenRepDisplayTruckTicket.php" method="post">
 			</div>
 			<label for="broker">Select Truck:</label>

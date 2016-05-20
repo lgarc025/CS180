@@ -160,7 +160,7 @@ body {margin:0;}
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
 				<li><a href="/RemoveExpenseType.php">Remove Expense Type</a></li>
 			</ul></li>
-		<li style = "float:right"><a href="luistrucking.html">Logout</a></li>
+		<li style = "float:right"><a href="logout.php">Logout</a></li>
 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
 	</ul>
 	</div>

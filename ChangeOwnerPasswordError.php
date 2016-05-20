@@ -7,7 +7,7 @@
 	
 	 }
 	
-	 if($_COOKIE["admin"] == '1')
+	 if($_COOKIE["admin"] == '0')
 	 {
 			 header('Location: http://www.luistrucking.com/home_sec.html');
 
@@ -37,7 +37,7 @@
 
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Custom Stylesheet -->
-	<link rel="stylesheet" href="css/styleDisplayDriverData.css">
+	<link rel="stylesheet" href="css/dropStyle.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
@@ -116,26 +116,49 @@ body {margin:0;}
 <div class="header">
 	<div class="header-wrapper">
 	<ul>
-	<li><a href="home_driver.php">Home</a></li><li>
-		<li><a  href="#tic">Tickets</a>
+	<li><a href="home.php">Home</a></li><li>
+		<a href="#hauler">Haulers</a>
+			<ul>
+				<li><a href="/AddHauler.php">Add Hauler</a></li>
+				<li><a href="/RemoveHauler.php">Remove Hauler</a></li>
+			</ul></li><li>
+
+		<li><a href="#brk">Brokers</a>
 			<ul>
 
-				<li><a href="/DriverAddTicket.php">Add Tickets</a></li>
-				<li><a href="/DriverRemoveTicket.php">Remove Tickets</a></li>
+				<li><a href="/OwnerDisplayBrokerTicket.php">View Tickets</a></li>
+				<li><a href="/OwnerPaidTicket.php">Update Paid Tickets</a></li>
+   			<li><a href=/TicketSearch.php>Unpaid Ticket Search</a></li>
+				<li><a href="/AddBroker.php">Add Broker</a></li>
+				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a href="#exp">Expenses</a>
+		<a class="active" href="#drvr">Driver</a>
 			<ul>
 
-				<li><a href="/DriverAddExpense.php">Add Expense</a></li>
-<li><a href=/DriverRemoveExpense.php>Remove Expense</a></li>
+				<li><a href="/AddTicketOwner.php">Add Ticket</a></li>
+				<li><a href="/OwnerDisplayDriverTicket.php">View Tickets</a></li>
+<li><a href=/OwnerRemoveTicket.php>Remove Ticket</a></li>
+				<li><a href="/OwnerApproveTicket.php">Approve Tickets</a></li>
+				<li><a href="/AddDriver.php">Add Driver</a></li>
+				<li><a href="/RemoveDriver.php">Remove Driver</a></li>
 			</ul></li><li>
-			<a class="active"href="#rep">Reports</a>
+			<a href="#trk">Trucks</a>
 			<ul>
-				<li><a href="/DisplayDriverTicket.php">Pay Report</a></li>
+				<li><a href="/AddTruck.php">Add Truck</a></li>
+				<li><a href="/RemoveTruck.php">Remove Truck</a></li>
+			<li><a href=/OwnerDisplayTruckTicket.php>Revenue Report</a></li>
 			</ul></li><li>
-			<a href="#acc">Account</a>
+			<a href="#ex">Expenses</a>
 			<ul>
-				<li><a href="/ChangeDriverPassword.php">Change Password</a></li>
+
+				<li><a href="/OwnerAddExpense.php">Add Expense</a></li>
+<li><a href=/OwnerViewExpense.php>View Expense</a></li>
+	<li><a href=/OwnerApproveExpense.php>Approve Expense</a></li>
+<li><a href=/RemoveExpense.php>Remove Expense</a></li>
+				<li><a href="/AddVendor.php">Add Vendor</a></li>
+				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
+				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
+				<li><a href="/RemoveExpenseType.php">Remove Expense Type</a></li>
 			</ul></li>
 		<li style = "float:right"><a href="logout.php">Logout</a></li>
 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
@@ -150,21 +173,24 @@ body {margin:0;}
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Driver Pay By Date </h2>
-			<form action="GenRepDisplayDriverTicket.php" method="post">
+				<h2>Change Password </h2>
+			<form action="ChangeDriverPasswordInfo.php" method="post">
 			</div>
-			<label for="time">Start Date:</label>
+			Error Changing Password, Try Again!
 			<br/>
-			<input type="date" name="startdate" id="startdate">
+			<label for="old">Old Password:</label>
 			<br/>
-			<label for="time">End Date:</label>
+			<input type="password" name="old" id="old">
 			<br/>
-			<input type="date" name="enddate" id="enddate">
+			<label for="new">New Password:</label>
 			<br/>
-			<button type="submit">Generate Report</button>
+			<input type="password" name="new" id="new">
 			<br/>
+			<label for="new2">Reenter New Password:</label>
 			<br/>
-			<?php include('DisplayDriverTicketInfo.php'); ?>
+			<input type="password" name="new2" id="new2">
+			<br/>
+			<button type="submit">Change Password</button>
 			<br/>
 			</form>
 		</div>

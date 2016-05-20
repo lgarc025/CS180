@@ -160,7 +160,7 @@ body {margin:0;}
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
 				<li><a href="/RemoveExpenseType.php">Remove Expense Type</a></li>
 			</ul></li>
-		<li style = "float:right"><a href="luistrucking.html">Logout</a></li>
+		<li style = "float:right"><a href="logout.php">Logout</a></li>
 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
 	</ul>
 	</div>
@@ -174,7 +174,7 @@ body {margin:0;}
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Revenue By Truck </h2>
+				<h2>Revenue Report </h2>
 			<form action="OwnerGenRepDisplayTruckTicket.php" method="post">
 			</div>
 			<label for="broker">Select Truck:</label>
