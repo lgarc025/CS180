@@ -134,7 +134,7 @@ body {margin:0;}
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a class="active" href="#drvr">Driver</a>
+		<a  href="#drvr">Driver</a>
 			<ul>
 
 	<li><a href=/AddTicketOwner.php>Add Ticket</a></li>
@@ -162,7 +162,7 @@ body {margin:0;}
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
 				<li><a href="/RemoveExpenseType.php">Remove Expense Type</a></li>
 				</ul></li><li>
-			<a  href="#acc">Account</a>
+			<a  class="active"href="#acc">Account</a>
 			<ul>
 			<li><a href="/ChangeOwnerPassword.php">Change Password</a></li>
 			</ul></li>
@@ -182,19 +182,19 @@ body {margin:0;}
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Remove Driver </h2>
+				<h2>Remove Admin Account  </h2>
 			<form action="RemoveDriverInfo.php" method="post">
 			</div>
-			<label for="drivername">Driver:</label>
+			<label for="drivername">Administrator:</label>
 			<br/>
 			<select name='drivername' id='drivername'>
 			<?php
-				require('./GetDriver.php');
+				require('./GetAdmin.php');
 			?>
 			</select>
 			<br/>
 			<br/>
-			<button type="submit">Remove Driver</button>
+			<button type="submit">Remove Admin</button>
 			<br/>
 			</form>
 		</div>
