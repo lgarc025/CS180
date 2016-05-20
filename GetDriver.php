@@ -26,7 +26,7 @@
 $dbname = $_COOKIE[db];
 			
 			 $conn = new mysqli($servername, $username, $password, $dbname);
-			 $sql = "SELECT DriverName FROM Driver";
+			 $sql = "SELECT DriverName FROM Driver Where PayRate != 0";
 			 $result = $conn->query($sql);
 
 			 while($row = $result->fetch_assoc())

@@ -7,7 +7,18 @@ $password = "Luis1234";
 $dbname = "Master";
 $newcompany = $_POST['company'];
 
+$password2 = $_POST['password'];
+$password1 = $_POST['password1'];
+$name = $_POST['name'];
+$username = $_POST['username'];
+$rate = $_POST['rate'];
 
+if ( $password2 != $password1 || strlen($name) == 0 || strlen($username) == 0 || strlen($rate) == 0 || $rate >= 100 )
+{
+
+		header('Location: http://www.luistrucking.com/CreateNewCompany_error.php');
+		return;
+}
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "INSERT INTO CompanyList ( CompanyName, DatabaseName ) VALUES ( '$newcompany', '$newcompany' )";
@@ -18,6 +29,7 @@ if ($result == false)
 {
 
 		header('Location: http://www.luistrucking.com/CreateNewCompany_error.php');
+		return;
 }
 
 $conn->close();
@@ -30,7 +42,8 @@ $result = $conn->query($sql);
 
 if ($result == false)
 {
-		//header('Location: http://www.luistrucking.com/CreateNewCompany_error.php');
+		header('Location: http://www.luistrucking.com/CreateNewCompany_error.php');
+		return;
 }
 
 //Connect to new database
@@ -65,9 +78,7 @@ $result = $conn->query($sql);
 $sql = "CREATE TABLE Expense (ExpenseID Serial, ExpenseDate DATE NOT NULL, ExpenseType CHAR(50) NOT NULL, VendorName CHAR(50), Amount REAL NOT NULL, DriverName CHAR(50), TruckID CHAR(10), Details CHAR (100) NOT NULL, Approve BOOL, FOREIGN KEY (DriverName) REFERENCES Driver(DriverName),FOREIGN KEY (TruckID) REFERENCES Truck(TruckID), FOREIGN KEY (ExpenseType) REFERENCES ExpenseType(ExpenseTypeName),  FOREIGN KEY (VendorName) REFERENCES Vendor(VendorName ),Primary Key (ExpenseID))";
 $result = $conn->query($sql);
 
-$name = $_POST['name'];
-$username = $_POST['username'];
-$rate = $_POST['rate'];
+
 $password = $_POST['password'];
 $password1 = $_POST['password1'];
 
@@ -75,6 +86,9 @@ $sql = "INSERT INTO Driver ( DriverName, login, password, PayRate, IsAdmin) VALU
 $result = $conn->query($sql);
 
 $conn->close();
+
+
+		header('Location: http://www.luistrucking.com/CreateNewCompany_okay.html');
 
 ?><br>
 
