@@ -7,12 +7,13 @@ do
 		cat $item | while IFS=' ' read row
 		do
 
-		    echo "$row" >> temp.php;
 			if [[ "$row" == *'$dbname = "LuisTrucking";'* ]] 
 			then
-				#string to insert where we stop
+				echo '$dbname = $_COOKIE['db'];'
 				echo "DONE MASTER";
 				echo $item;
+			else
+		    	echo "$row" >> temp.php;
 			fi
 		done
 		#copy the temp file to the orginal file
