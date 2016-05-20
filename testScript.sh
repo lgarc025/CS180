@@ -3,12 +3,12 @@
 
 
 ls | while IFS=' ' read item
-do 
+do
 	if [[ "$item" == *".php"* ]]
 	then
 		cat $item | while IFS=' ' read row
 		do
-			if [[ "$row" == *"/AddVendor.php"* ]] 
+			if [[ "$row" == *"/AddVendor.php"* ]]
 			then
 				#string to insert where we stop
 				echo "                <li><a href="/OwnerViewExpense.php">View Expense</a></li>" >> temp.php;
@@ -18,7 +18,7 @@ do
 		done
 		#copy the temp file to the orginal file
 
-		echo $item; 
+		echo $item;
 		cat temp.php  > "$item"
 		#remove the temp file
 		rm temp.php

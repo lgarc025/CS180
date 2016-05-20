@@ -1,15 +1,15 @@
 #!/bin/bash
 
 ls | while IFS=' ' read item
-do 
+do
 	if [[ "$item" != *"iOS"* ]] && [[ "$item" != *"Web"* ]]
 	then
 		cat $item | while IFS=' ' read row
 		do
 
-			if [[ "$row" == *'$dbname = "LuisTrucking";'* ]] 
+$dbname = $_COOKIE[db];
 			then
-				echo '$dbname = $_COOKIE['db'];'
+				echo '$dbname = $_COOKIE['db'];' >> temp.php;
 				echo "DONE MASTER";
 				echo $item;
 			else
@@ -18,8 +18,8 @@ do
 		done
 		#copy the temp file to the orginal file
 
-		#echo $item; 
-		#cat temp.php  > "$item"
+		#echo $item;
+		cat temp.php  > "$item"
 		#remove the temp file
 		rm temp.php
 	fi

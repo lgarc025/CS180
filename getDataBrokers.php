@@ -47,7 +47,7 @@
 			 $servername = "luis.cylcbbatmizc.us-west-2.rds.amazonaws.com";
 			 $username = "Luis";
 			 $password = "Luis1234";
-			 $dbname = "LuisTrucking";
+$dbname = $_COOKIE[db];
 			
 			 $conn = new mysqli($servername, $username, $password, $dbname);
 			 $sql = "SELECT BrokerName, SUM(Total) FROM Ticket Group By BrokerName";

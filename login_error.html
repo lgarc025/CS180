@@ -35,6 +35,10 @@
 			<br/>
 			<input type="password" name="password" id="password">
 			<br/>
+			<label for="company">Company</label>
+			<br/>
+			<input type="text" name="company" id="company">
+			<br/>
 			<button type="submit">Sign In</button>
 			<br/>
 			</form>
@@ -44,8 +48,8 @@
 
 <script>
 	$(document).ready(function () {
-    	$('#logo').addClass('animated fadeInDown');
-    	$("input:text:visible:first").focus();
+	$('#logo').addClass('animated fadeInDown');
+	$("input:text:visible:first").focus();
 	});
 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');

@@ -3,12 +3,12 @@
 
 
 ls | while IFS=' ' read item
-do 
+do
 	if [[ "$item" != *".php"* ]]
 	then
 		cat $item | while IFS=' ' read row
 		do
-			if [[ "$row" == *"<!DOCTYPE html>"* ]] 
+			if [[ "$row" == *"<!DOCTYPE html>"* ]]
 			then
 			cat Security.php > temp.php
 			cat $item >> temp.php

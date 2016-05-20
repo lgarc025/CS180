@@ -2,14 +2,32 @@
 <body>
 
 <?php
+$company = $_POST["company"];
+$servername = "luis.cylcbbatmizc.us-west-2.rds.amazonaws.com";
+$username = "Luis";
+$password = "Luis1234";
+$dbname = "Master";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+$sql = "SELECT DatabaseName FROM CompanyList Where CompanyName='$company'";
+$result = $conn->query($sql);
+
+$row = $result->fetch_assoc();
+
+if (sizeof($row) == 0)
+{
+		header('Location: http://www.luistrucking.com/login_error.html');
+		return;
+}
+
 $cookie_name = "db";
-$cookie_value = "LuisTrucking";
+$cookie_value = $row[DatabaseName];
 setcookie($cookie_name, $cookie_value, time() + (86 * 1000), '/');
 
 $servername = "luis.cylcbbatmizc.us-west-2.rds.amazonaws.com";
 $username = "Luis";
 $password = "Luis1234";
-$dbname = "LuisTrucking";
+$dbname = $_COOKIE[db];
 
 $login = $_POST["username"];
 $password_u = $_POST["password"];

@@ -18,34 +18,41 @@
 <body>
 	<div class="container">
 		<div class="top">
-			<h1 id="title" class="hidden"><span id="logo">Welcome, <br/> <span>Luis Trucking</span></span></h1>
+			<h1 id="title" class="hidden"><span id="logo">Create New Account <br/> </span></span></h1>
 		</div>
 		<div class="login-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Log In</h2>
-			<form action="testlogin.php" method="post">
+				<h2>Sign Up</h2>
+			<form action="CreateNewCompany.php" method="post">
 			</div>
-			<label for="username">Username</label>
+			Enter The Following Information:
+			<br/>
+			<label for="username">Name</label>
+			<br/>
+			<input type="text" name="name" id="name">
+			<br/>
+			<label for="username">username</label>
 			<br/>
 			<input type="text" name="username" id="username">
 			<br/>
-			<label for="password">Password</label>
+			<label for="username">Pay Rate</label>
+			<br/>
+			<input type="number" name="rate" id="rate">
+			<br/>
+			<label for="password">password</label>
 			<br/>
 			<input type="password" name="password" id="password">
+			<br/>
+			<label for="password">Reenter Password</label>
+			<br/>
+			<input type="password" name="password1" id="password1">
 			<br/>
 			<label for="company">Company</label>
 			<br/>
 			<input type="text" name="company" id="company">
 			<br/>
-			<button type="submit">Sign In</button>
+			<button type="submit">Create Account</button>
 			</form>
-			<br/>
-			<br/>
-			New Company? Sign Up!
-			<form action="SignUp.php" method="post">
-			<br/>
-			<button type="submit">Sign Up</button>
-			<br/>
 			<br/>
 			</form>
 		</div>
@@ -72,5 +79,3 @@
 	});
 </script>
 
-
-</html>
