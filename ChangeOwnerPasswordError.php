@@ -9,9 +9,9 @@
 	
 	 if($_COOKIE["admin"] == '0')
 	 {
-			 header('Location: http://www.luistrucking.com/home_sec.html');
+			header('Location: http://www.luistrucking.com/home_sec.html');
 
-			 return;
+			return;
 	 }
 
 	$cookie_name = "login";
@@ -128,11 +128,11 @@ body {margin:0;}
 
 				<li><a href="/OwnerDisplayBrokerTicket.php">View Tickets</a></li>
 				<li><a href="/OwnerPaidTicket.php">Update Paid Tickets</a></li>
-   			<li><a href=/TicketSearch.php>Unpaid Ticket Search</a></li>
+			<li><a href=/TicketSearch.php>Unpaid Ticket Search</a></li>
 				<li><a href="/AddBroker.php">Add Broker</a></li>
 				<li><a href="/RemoveBroker.php">Remove Broker</a></li>
 			</ul></li><li>
-		<a class="active" href="#drvr">Driver</a>
+		<a  href="#drvr">Driver</a>
 			<ul>
 
 				<li><a href="/AddTicketOwner.php">Add Ticket</a></li>
@@ -159,6 +159,10 @@ body {margin:0;}
 				<li><a href="/RemoveVendor.php">Remove Vendor</a></li>
 				<li><a href="/AddExpenseType.php">Add Expense Type</a></li>
 				<li><a href="/RemoveExpenseType.php">Remove Expense Type</a></li>
+				`</ul></li><li>
+   			<a class="active"  href="#acc">Account</a>
+   			<ul>
+   			<li><a href="/ChangeOwnerPassword.php">Change Password</a></li>
 			</ul></li>
 		<li style = "float:right"><a href="logout.php">Logout</a></li>
 		<li style = "float:right; color:#FFF; background-color:#333; padding: 14px 16px;"><?php echo "Welcome, "; echo $_COOKIE[uname]."!"; ?></li>
@@ -173,8 +177,8 @@ body {margin:0;}
 		</div>
 		<div class="ticket-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Change Password </h2>
-			<form action="ChangeDriverPasswordInfo.php" method="post">
+				<h2>Change Owner Password </h2>
+			<form action="ChangeOwnerPasswordInfo.php" method="post">
 			</div>
 			Error Changing Password, Try Again!
 			<br/>

@@ -33,7 +33,7 @@ echo $row[password];
 
 if($NewP2 != $NewP ||  $OldP != $row[password])
 {	
-	    header('Location: http://www.luistrucking.com/ChangeOwnerPasswordError.php');
+	   header('Location: http://www.luistrucking.com/ChangeOwnerPasswordError.php');
 		return;
 }
 else
