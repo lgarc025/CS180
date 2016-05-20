@@ -27,7 +27,7 @@ setcookie($cookie_name, $cookie_value, time() + (86 * 1000), '/');
 $servername = "luis.cylcbbatmizc.us-west-2.rds.amazonaws.com";
 $username = "Luis";
 $password = "Luis1234";
-$dbname = $_COOKIE[db];
+$dbname = $cookie_value;
 
 $login = $_POST["username"];
 $password_u = $_POST["password"];
