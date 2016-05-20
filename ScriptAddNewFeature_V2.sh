@@ -4,7 +4,7 @@
 
 ls | while IFS=' ' read item
 do 
-	if [[ "$item" == *".php"* ]]
+	if [[ "$item" != *".php"* ]]
 	then
 		cat $item | while IFS=' ' read row
 		do

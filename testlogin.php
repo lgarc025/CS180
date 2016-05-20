@@ -2,6 +2,10 @@
 <body>
 
 <?php
+$cookie_name = "db";
+$cookie_value = "LuisTrucking";
+setcookie($cookie_name, $cookie_value, time() + (86 * 1000), '/');
+
 $servername = "luis.cylcbbatmizc.us-west-2.rds.amazonaws.com";
 $username = "Luis";
 $password = "Luis1234";
