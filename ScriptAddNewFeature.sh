@@ -13,10 +13,10 @@ do
 			if [[ "$row" == *'RemoveExpenseType.php">Remove Expense Type'* ]] 
 			then
 				#string to insert where we stop
-				echo '				`</ul></li><li>'  >> temp.php;
-				echo '   			<a  href="#acc">account</a>'  >> temp.php;
+				echo '				</ul></li><li>'  >> temp.php;
+				echo '   			<a  href="#acc">Account</a>'  >> temp.php;
 				echo '   			<ul>'  >> temp.php;
-				echo '   			<li><a href="/changeownerpassword.php">Change Password</a></li>' >> temp.php;
+				echo '   			<li><a href="/ChangeOwnerPassword.php">Change Password</a></li>' >> temp.php;
 				echo "DONE MASTER";
 				echo $item;
 			fi
