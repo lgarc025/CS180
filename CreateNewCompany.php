@@ -6,37 +6,38 @@ $username = "Luis";
 $password = "Luis1234";
 $dbname = "Master";
 $newcompany = $_POST['company'];
+$newcompany1 = str_replace(' ', '_', $newcompany);
 
 $password2 = $_POST['password'];
 $password1 = $_POST['password1'];
 $name = $_POST['name'];
-$username = $_POST['username'];
+$username1 = $_POST['username'];
 $rate = $_POST['rate'];
 
-if ( $password2 != $password1 || strlen($name) == 0 || strlen($username) == 0 || strlen($rate) == 0 || $rate >= 100 )
+if ( $password2 != $password1 || strlen($name) == 0 || strlen($username) == 0 || strlen($rate) == 0 || $rate >= 100 || $rate < 0 )
 {
 
 		header('Location: http://www.luistrucking.com/CreateNewCompany_error.php');
 		return;
 }
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "INSERT INTO CompanyList ( CompanyName, DatabaseName ) VALUES ( '$newcompany', '$newcompany' )";
+$conn = new mysqli($servername, $username, $password, 'Master');
+$sql = "INSERT INTO CompanyList ( CompanyName, DatabaseName ) VALUES ('$newcompany','$newcompany1')";
 echo $sql;
 $result = $conn->query($sql);
 
 if ($result == false)
 {
 
-		header('Location: http://www.luistrucking.com/CreateNewCompany_error.php');
-		return;
+		//header('Location: http://www.luistrucking.com/CreateNewCompany_errorw.php');
+		//return;
 }
 
 $conn->close();
 
 //Create New DB Instance
 $conn = new mysqli($servername, $username, $password);
-$sql = "CREATE DATABASE $newcompany";
+$sql = "CREATE DATABASE $newcompany1";
 echo $sql;
 $result = $conn->query($sql);
 
@@ -47,7 +48,7 @@ if ($result == false)
 }
 
 //Connect to new database
-$dbname = $newcompany;
+$dbname = $newcompany1;
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 $sql = "CREATE TABLE Driver ( DriverName CHAR(50), login CHAR(50), password char(50) NOT NULL,
@@ -82,7 +83,7 @@ $result = $conn->query($sql);
 $password = $_POST['password'];
 $password1 = $_POST['password1'];
 
-$sql = "INSERT INTO Driver ( DriverName, login, password, PayRate, IsAdmin) VALUES ('$name', '$username', '$password', '$rate', '1')";
+$sql = "INSERT INTO Driver ( DriverName, login, password, PayRate, IsAdmin) VALUES ('$name', '$username1', '$password', '$rate', '1')";
 $result = $conn->query($sql);
 
 $conn->close();
