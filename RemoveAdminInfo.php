@@ -28,11 +28,11 @@ $sql = "DELETE FROM Driver Where DriverName='$Driver'";
 if(!mysqli_query($conn,$sql))
 {
 		
-		header('Location: http://www.luistrucking.com/RemoveDriverError.php');
+		header('Location: http://www.luistrucking.com/RemoveAdminError.php');
 }
 else
 {
-		header('Location: http://www.luistrucking.com/RemoveDriverOkay.php');
+		header('Location: http://www.luistrucking.com/RemoveAdminOkay.php');
 }
 
 

@@ -187,6 +187,8 @@ body {margin:0;}
 				<h2>Remove Admin Account  </h2>
 			<form action="RemoveAdminInfo.php" method="post">
 			</div>
+			Error Removing Admin Account, Try Again!
+			<br/>
 			<label for="drivername">Administrator:</label>
 			<br/>
 			<select name='drivername' id='drivername'>
